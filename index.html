@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
@@ -46,7 +47,7 @@
   //--------------------------------------------------------------------------
 
     var APP_ID = "244737469017614";
-    var REDIRECT_URI = "https://apps.facebook.com/sanpablo_app/";
+    var REDIRECT_URI = "https://houselab.co/sanpablo/";
     var PERMS = "email";
 
 
@@ -97,9 +98,9 @@ function handleLoginStatus(response)
        
         
        } else {
-       
-        var params = window.location.toString().slice(window.location.toString().indexOf('?'));                   
-        top.location = 'https://graph.facebook.com/oauth/authorize?client_id='+APP_ID+'&scope='+PERMS+'&redirect_uri=' + REDIRECT_URI + params;
+       window.location = "https://houselab.co/sanpablo/index.html"
+        //var params = window.location.toString().slice(window.location.toString().indexOf('?'));                   
+        //top.location = 'https://graph.facebook.com/oauth/authorize?client_id='+APP_ID+'&scope='+PERMS+'&redirect_uri=' + REDIRECT_URI + params;
         
         }
       
