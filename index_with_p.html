@@ -22,7 +22,7 @@
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     
     <!--SCRIPTS DEBUGGER-->
-<script src="http://debug.phonegap.com/target/target-script-min.js#gio"></script>
+<!--<script src="http://debug.phonegap.com/target/target-script-min.js#gio"></script>-->
 
 <!--SCRIPTS MOBILE-->
 <link href="jquery-mobile/jquery.mobile-1.0a3.min.css" rel="stylesheet" type="text/css">
@@ -33,9 +33,16 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jTabs.js"></script>
         
+        <script src="cordova.js"></script>
+  <script src="cdv-plugin-fb-connect.js"></script>
+    <!-- facebook js sdk -->
+  <script src="facebook-js-sdk.js"></script>
+
   <div id="fb-root"></div>
 
 	<script type="text/javascript">
+
+  FB.init({ appId: APP_ID, nativeInterface: CDV.FB, useCachedDialogs: false });
   //--------------------------------------------------------------------------
   //---------------------------------- TO CHANGE -----------------------------
   //--------------------------------------------------------------------------
@@ -51,92 +58,97 @@
     var PERMS = "email";
 
 
-  window.fbAsyncInit = function() 
-  {
-      //FB.Canvas.setAutoGrow(); //Resizes the iframe to fit content
+  FB.Event.subscribe('auth.login', function(response) {
+                               alert('auth.login event');
+                               });
+            
+            FB.Event.subscribe('auth.logout', function(response) {
+                               alert('auth.logout event');
+                               });
+            
+            FB.Event.subscribe('auth.sessionChange', function(response) {
+                               alert('auth.sessionChange event');
+                               });
+            
+            FB.Event.subscribe('auth.statusChange', function(response) {
+                               alert('auth.statusChange event');
+                               });
+            
+            /*function getSession() {
+                alert("session: " + JSON.stringify(FB.getSession()));
+            }
+            */
+            function getLoginStatus() {
+                FB.getLoginStatus(function(response) {
+                                  if (response.status == 'connected') {
+                                  alert('logged in');
+                                  } else {
+                                  alert('not logged in');
+                                  }
+                                  });
+            }
+            var friendIDs = [];
+      var fdata;
+            function me() {
+                FB.api('/me/friends', { fields: 'id, name, picture' },  function(response) {
+                       if (response.error) {
+                       alert(JSON.stringify(response.error));
+                       } else {
+                       var data = document.getElementById('data');
+             fdata=response.data;
+             console.log("fdata: "+fdata);
+                       response.data.forEach(function(item) {
+                                             var d = document.createElement('div');
+                                             d.innerHTML = "<img src="+item.picture+"/>"+item.name;
+                                             data.appendChild(d);
+                                             });
+                       }
+          var friends = response.data;
+          console.log(friends.length); 
+          for (var k = 0; k < friends.length && k < 200; k++) {
+                var friend = friends[k];
+                var index = 1;
 
-      FB.init(
-      {
-        appId      : APP_ID, 
-        channelUrl : pathURL+'sanpablo/',
-        status     : true, 
-        cookie     : true, 
-        xfbml      : true  
-      });
-
-      FB.getLoginStatus(handleLoginStatus);
-      FB.login();
-
-      FB.Event.subscribe('auth.authResponseChange', function(response) 
-      {
-        if (response.status === 'connected') 
-        {
-          
-          getInfo();
-        } else if (response.status === 'not_authorized') 
-        {
-          FB.login();
-        }else
-        {
-          FB.login();
-        }
-      });
-  };
-
-
-function login()
-{
-  FB.login();
-}
-
-function handleLoginStatus(response) 
-{
-  console.log(response.status)
-        
-      if (response.status) {
-      
-       
-        
-       } else {
-       window.location = "https://houselab.co/sanpablo/index.html"
-        //var params = window.location.toString().slice(window.location.toString().indexOf('?'));                   
-        //top.location = 'https://graph.facebook.com/oauth/authorize?client_id='+APP_ID+'&scope='+PERMS+'&redirect_uri=' + REDIRECT_URI + params;
-        
-        }
-      
-    }     
-
-
-  (function(d)
-  {
-
-      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement('script'); js.id = id; js.async = true;
-      js.src = "//connect.facebook.net/en_US/all.js";
-      ref.parentNode.insertBefore(js, ref);
-  }(document));
-
-  function getInfo() 
-  {
-      FB.api('/me', function(response) 
-      {
-        isLogin = true;
-        $("#name").html(response.name+ " ");
-        
-        myName  = response.name;
-        mailFb  = response.username + "@facebook.com";
-        idFb    = response.id;
-        email   = response.name;
-        
-        if(allreadyCallAction)
-          createjs.Tween.get(shape).to({alpha:0}, 500, createjs.Ease.sineIn);
-      });
-
-      
-  }
+                friendIDs[k] = friend.id;
+                //friendsInfo[k] = friend;
+          }
+          console.log("friendId's: "+friendIDs);
+                       });
+            }
+            
+            function logout() {
+                FB.logout(function(response) {
+                          alert('logged out');
+                          });
+            }
+            
+            function login() {
+                FB.login(
+                         function(response) {
+                         if (response.session) {
+                         alert('logged in');
+                         } else {
+                         alert('not logged in');
+                         }
+                         },
+                         { scope: "email" }
+                         );
+            }
 
 
+            /// ----------------------------- LOG FB ----------------------------------------------------
+
+            document.addEventListener('deviceready', function() {
+                                      try {
+                                      alert('Device is ready! Make sure you set your app_id below this alert.');
+                                      FB.init({ appId: APP_ID, nativeInterface: CDV.FB, useCachedDialogs: false });
+                                      document.getElementById('data').innerHTML = "";
+                                      } catch (e) {
+                                      alert(e);
+                                      }
+                                      }, false);
+
+            /// ----------------------------- LOG FB ----------------------------------------------------
 
 		$(document).ready(function(){
 		$("ul.tabs").jTabs({content: ".tabs_content"});});    
@@ -424,6 +436,7 @@ function handleLoginStatus(response)
 		//CHANGE HEIGHT MIN
 		function onChange(myPage)
 		{
+      getLoginStatus()
       login();
 
 			window.location.assign("index.html#"+myPage)	
@@ -879,9 +892,9 @@ function handleLoginStatus(response)
             <section>
             	<div class="banner_categorias gallery cf">
                 	<img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
-                	<img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
-                    <img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
-                    <img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
+                	<img src="images/banner_categorias_2.png" class="grid-unit" onClick="onChange('page6')">
+                    <img src="images/banner_categorias_3.png" class="grid-unit" onClick="onChange('page6')">
+                    <img src="images/banner_categorias_4.png" class="grid-unit" onClick="onChange('page6')">
                 </div>
             </section>
             <div data-role="footer" class="nav_bottom">
@@ -1144,7 +1157,7 @@ function handleLoginStatus(response)
            </div>
            <div id='categoria' class='clearfix gallery cf'>
            	<a href="#page6"><img src="images/destacado1.png"  alt=""/></a>
-           	<a href="#page6"><img src="images/destacado1.png"  alt=""/></a>
+           	<a href="#page6"><img src="images/destacado2.png"  alt=""/></a>
            </div>
            <div id='categoria_box13' class='clearfix'>
                <p id='categoria_text4'>
