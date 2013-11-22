@@ -126,6 +126,10 @@ and (min-device-width: 320px) {
 	.logo{
 		width:33%;
 	}
+	.logo:focus{
+		border:none;
+	}
+
 	#menu{
 		width: 65%;
 	}
@@ -1123,6 +1127,32 @@ code {
 	height:auto;
 	overflow:auto;
 }
+
+#header_biblioteca {
+	margin-top:0%;
+}
+
+#btn_edit{
+	margin-top: 6px;
+	height: auto;
+	position: absolute;
+	width: 14%;
+	left: -8.1%;
+	background-color: #737373;
+	color: #FFF;
+}
+
+#btn_new{
+	margin-top: 6px;
+	height: auto;
+	position: absolute;
+	width: 14%;
+	right: 23.9%;
+	background-color: #737373;
+	color: #FFF;
+}
+
+
 /*----------------------------------------------------------- SLIDER ------------------------------------*/
 
 .mi-slider {
@@ -1269,6 +1299,23 @@ code {
 	margin-left: -8px;
 }
 
+.edit_drop{
+	background-color:#EFEFEF;
+	float: left;
+	margin-bottom: 2%;
+	width: 100%;
+	padding-top: 1em;
+	height: auto;
+	display:none;
+}
+
+.edit_pointer{
+	margin-left: 80.54%;
+	float: left;
+	margin-top: -3%;
+	}
+
+
 @media only screen and (max-width: 1024px) {
    #box_howto3 {
         margin-top: 90px;
@@ -1357,6 +1404,14 @@ code {
 		}
 	.search_drop{
 		display:none;
+		}
+		
+	.edit_drop > #categoria_box4 > #categoria_text1 {
+		width:11.534517%;
+		}
+	.edit_pointer{
+		margin-left: 76.90%;
+		margin-top: -4%;
 		}
 
 }
@@ -1457,7 +1512,7 @@ code {
 		height: 13em;
 	}
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 640px){
 	.first_link_search {
 		margin-left:3%;
 	}
@@ -1522,6 +1577,16 @@ code {
 	}
 	.btn_center {
 		margin-left:2%;
+	}
+	.edit_drop > #categoria_box4 > #categoria_text1 {
+		width:16.534517%;
+	}
+	.edit_drop > #categoria_box4 > #categoria_box5 {
+		width:70.90842%;
+	}
+	.edit_pointer{
+		margin-left: 73.90%;
+		margin-top: -6%;
 	}
 }
 
@@ -1721,6 +1786,25 @@ code {
 	.red_pointer_position {
 		margin-left: 19.4%;
 		margin-top: 3.5%;
+	}
+	
+	.search_biblioteca {
+		display:block !important;
+	}
+	
+	.search_biblioteca > .search > .ui-input-search {
+		background-size: 19%;
+		width: 141%;
+		height: 38px;
+	}
+	
+	.search_biblioteca > .search > .ui-input-search > .ui-input-search input.ui-input-text {
+		margin-left: 12% !important;
+	}
+	
+	.edit_pointer{
+		margin-left: 78.45%;
+		margin-top: -7%;
 	}
 
 }
@@ -1990,6 +2074,18 @@ code {
 		width: 75%;
 		margin: .7em auto 0 13.33%;
 	}
+	.edit_drop > #categoria_box4 > #categoria_text1 {
+		width:30.534517%;
+	}
+	.edit_drop > #categoria_box4 > #categoria_box5 {
+		width:52.90842%;
+	}
+	.edit_pointer{
+		margin-left: 65.45%;
+		margin-top: -12%;
+	}
+
+	
 
 /*--------------------------------------
 			Este estilo activa la visibilidad del buscador en 320px--------------------*/

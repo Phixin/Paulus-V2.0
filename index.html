@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="css/categoriapage.css" />
 	<link rel="stylesheet" href="css/categoriaspage.css" />
 	<link rel="stylesheet" href="css/detallepage.css" />
+    <link rel="stylesheet" href="css/biblioteca.css" />
     
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 	<script>var __adobewebfontsappname__ = "reflow"</script>
@@ -38,7 +39,13 @@
 		
 		var isOpenUser 	= false;
 		var isOpenShop 	= false;
-		var isOpenFaq	= false;
+		var isOpenFaq	  = false;
+
+    var isOpenLib   = false;
+    var isOpenLibC  = false;
+
+    var isOpenHelp  = false;
+    var isOpenHelpC = false;
 		
 		var actualPage;
 		
@@ -59,6 +66,61 @@
 				isOpenUser = false;
 			}
 		} 
+
+
+    //hide and show lib divs
+    function onShowLibConfig()
+    {
+      if(!isOpenLib)
+      {
+        closeAllLib();
+        $('#editDiv').css({"display":"block"});
+        isOpenLib = true;
+      }else{
+        closeAllLib();
+        isOpenLib = false;
+      }
+    }
+
+    function onShowLibConfigThumb()
+    {
+      if(!isOpenLibC)
+      {
+        closeAllLib();
+        $('#editDivThumbs').css({"display":"block"});
+        isOpenLibC  = true;
+      }else{
+        closeAllLib();
+        isOpenLibC  = false;
+      }
+    }
+
+    function onShowHelp()
+    {
+      if(!isOpenHelp)
+      {
+        closeAllLib();
+        $('#faqLib').css({"display":"block"});
+        isOpenHelp  = true;
+      }else{
+        closeAllLib();
+        isOpenHelp  = false;
+      }
+    }
+
+    function onShowHelpThumb()
+    {
+      if(!isOpenHelpC)
+      {
+        closeAllLib();
+        $('#faqLibThumbs').css({"display":"block"});
+        isOpenHelpC  = true;
+      }else{
+        closeAllLib();
+        isOpenHelpC  = false;
+      }
+    }
+    //--
 		
 		//hide and show shopincar
 		function onShowShop()
@@ -260,9 +322,14 @@
       		document.getElementById("shopBtnDet").addEventListener ("click", onShowShopDet, false);
       		document.getElementById("faqBtnDet").addEventListener ("click", onShowFaqDet, false);
 			document.getElementById("detalle_btnComprar").addEventListener ("click", onShowShopDet, false);
+
+      document.getElementById("btnLibConfig").addEventListener ("click", onShowLibConfig, false);
+      document.getElementById("btnLibConfigThumb").addEventListener ("click", onShowLibConfigThumb, false);
+      document.getElementById("btnFaqLibThumbs").addEventListener ("click", onShowHelpThumb, false);
+      document.getElementById("btnFaqLib").addEventListener ("click", onShowHelp, false);
 			
 			console.log(document.getElementById("detalle_btnComprar"))
-			$("body").css({"height": 480 });
+			//$("body").css({"height": 480 });
 			
 			/*
 			console.log("width: " + $("#page3").width());
@@ -322,7 +389,7 @@
 			window.location.assign("index.html#"+myPage)	
 			actualPage = myPage;
 			console.log(actualPage)
-			
+			/*
 			if(actualPage == 0)
 				$("body").css({"height": 480 });
 			else if(actualPage == "page1")
@@ -341,7 +408,7 @@
 				$("body").css({"height": 1300});
 				//console.log("Entro: " + $("#"+ actualPage));
 				//$("body").css({"min-height": $("#"+ actualPage).height() })
-			
+			*/
 		}
 		
 		function setAlltoFalse()
@@ -351,6 +418,13 @@
 			isOpenFaq	= false;
 		}
 
+    function closeAllLib()
+    {
+      $('#editDivThumbs').css({"display":"none"});
+      $('#editDiv').css({"display":"none"});
+      $('#faqLibThumbs').css({"display":"none"});
+      $('#faqLib').css({"display":"none"});
+    }
 
 
 		function closeAll()
@@ -779,15 +853,15 @@
             </section>
             <div data-role="footer" class="nav_bottom">
                 <nav>
-                    <a onClick="onChange('page6')">Categorias</a>
+                    <a onClick="onChange('page5')">Categorias</a>
                     <img class="spliterb" src="images/spliter_black.png">
-                    <a onClick="onChange('page5')">Promociones</a>
+                    <a onClick="onChange('page6')">Promociones</a>
                     <img class="spliterb" src="images/spliter_black.png">
                     <a onClick="onChange('page6')" >Destacado</a>
                     <img class="spliterb" src="images/spliter_black.png">
                     <a onClick="onChange('page6')">Autores</a>
                     <img class="spliterb" src="images/spliter_black.png">
-                    <a onClick="onChange('page6')">Comprados </a>
+                    <a onClick="onChange('page8')">Comprados </a>
                 </nav>
             </div>
         </div>
@@ -833,9 +907,9 @@
            <div data-role="footer" class="nav_bottom footer_perfil">
                 <nav>
                     <img class="spliterb" src="images/spliter_black.png">
-                    <a href="#page5">Libreria</a>
+                    <a href="#page6">Libreria</a>
                     <img class="spliterb" src="images/spliter_black.png">
-                    <a href="#page6">Mi biblioteca</a>
+                    <a href="#page8">Mi biblioteca</a>
                     <img class="spliterb" src="images/spliter_black.png">
                     <a href="#page6">Lista de deseos</a>
                     <img class="spliterb" src="images/spliter_black.png">
@@ -1102,7 +1176,7 @@
                     <img class="spliterb" src="images/spliter_black.png">
                     <a href="#page6">Autores</a>
                     <img class="spliterb" src="images/spliter_black.png">
-                    <a href="#page6">Comprados </a>
+                    <a href="#page8">Comprados </a>
                 </nav>
             </div>
 	</div>
@@ -1334,15 +1408,15 @@
        
        <div data-role="footer" class="nav_bottom">
                 <nav>
-                    <a href="#page6">Categorias</a>
+                    <a href="#page5">Categorias</a>
                     <img class="spliterb" src="images/spliter_black.png">
-                    <a href="#page5">Promociones</a>
+                    <a href="#page6">Promociones</a>
                     <img class="spliterb" src="images/spliter_black.png">
                     <a href="#page6">Destacado</a>
                     <img class="spliterb" src="images/spliter_black.png">
                     <a href="#page6">Autores</a>
                     <img class="spliterb" src="images/spliter_black.png">
-                    <a href="#page6">Comprados </a>
+                    <a href="#page8">Comprados </a>
                 </nav>
             </div>
 	</div>
@@ -1506,7 +1580,7 @@
            </p>
        </div>
        <a href="#"><img id='detalle_btnComprar' src='images/btnComprar.jpg' class='image' /></a>
-       <a href="#page8"><img id='detalle_btnMuestra' src='images/btnMuestra.jpg' class='image' /></a>
+       <a href="#page10"><img id='detalle_btnMuestra' src='images/btnMuestra.jpg' class='image' /></a>
        <div id='tab_detalle' class='clearfix'>
        
        		<ul class="tabs">
@@ -1627,40 +1701,40 @@ Sigue a todo esto un Apéndice, en el que se ofrecen normas prácticas para la c
        <div id='detalle_slider' class='clearfix'>
            <div id="detalle_categoria" class='clearfix listcategory'>
            	<ul>
-                            <li><a href="#page8"><img src="images/1.png" alt="img01"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/1.png" alt="img01"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                             <li><a href="#page8"><img src="images/6.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                             <li><a href="#page7"><img src="images/6.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/1.png" alt="img01"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/1.png" alt="img01"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
-                            <li><a href="#page8"><img src="images/6.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <li><a href="#page7"><img src="images/6.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
                             <br/>
                             Editorial San Pablo</figcaption></a></li>
                 </ul>
@@ -1672,23 +1746,538 @@ Sigue a todo esto un Apéndice, en el que se ofrecen normas prácticas para la c
       </div>
        <div data-role="footer" class="nav_bottom">
                 <nav>
-                    <a href="#page6">Categorias</a>
+                    <a href="#page5">Categorias</a>
                     <img class="spliterb" src="images/spliter_black.png">
-                    <a href="#page5">Promociones</a>
+                    <a href="#page6">Promociones</a>
                     <img class="spliterb" src="images/spliter_black.png">
-                    <a href="#page6">Destacado</a>
+                    <a href="#page5">Destacado</a>
                     <img class="spliterb sep1" src="images/spliter_black.png">
                     <a class="sep2" href="#page6">Autores</a>
                     <img class="spliterb sep3" src="images/spliter_black.png">
-                    <a class="sep4" href="#page6">Comprados </a>
+                    <a class="sep4" href="#page8">Comprados </a>
                 </nav>
             </div>
 
 	</div>
     
+<!-----------------------Pagina Biblioteca----------------------->
+
+<div data-role="page" id="page8" data-title="San Pablo - biblioteca">
+	<div id="primaryContainer" class="primaryContainer clearfix">
+    	<header id="header_biblioteca">
+       		<div id='box_biblioteca' class='clearfix'>
+           <div id='box1_biblioteca' class='clearfix'>
+               <a href="#page3"><img id='image_biblioteca' src='images/logo_biblioteca.png' class='image' /></a>
+           </div>
+           <img id='image1_biblioteca' src='images/spliter_red.png' class='image' />
+           <p id='text_biblioteca'>
+           Libros
+           </p>
+           <img id='image2_biblioteca' src='images/spliter_red.png' class='image' />
+           <div id='box2_biblioteca' class='clearfix'>
+               <a href="#page4"><img id='image3_biblioteca' src='images/biblioteca_perfil_icon.png' class='image' /></a>
+           </div>
+       </div>
+       	<div id='menu_biblioteca' class='clearfix'>
+           <div id='box4_biblioteca' class='clearfix'>
+           	<div id="search" class="search_biblioteca">
+            	<div data-role="fieldcontain" class="search">
+                	<input class="search_home_1024" type="search" name="" id="searchinput1" value="" placeholder="Buscar"  />
+                </div>
+             </div> <!--Search grande-->
+           </div>
+           <div id='box5_biblioteca' class='clearfix'>
+           		<a href="#"><img id="btn_search_biblioteca_tinny" src="images/search_icon_36.png" class="image"/></a>
+               <a href="#"><img id='image4_biblioteca' src='images/icon_thumbs.png' class='image' /></a>
+               <a href="#page9"><img id='image5_biblioteca' src='images/icon_list.png' class='image' /></a>
+               <a id='btnLibConfigThumb'><img id='image6_biblioteca' src='images/icon_config.png' class='image' /></a>
+               <a id="btnFaqLibThumbs"><img id='image7_biblioteca' src='images/FAQ_icon_36.jpg' class='image' /></a>
+           </div>
+       </div>
+         </header>
+            <div id="editDivThumbs" class="edit_drop grid-full">
+                <div class="gray_pointer edit_pointer"></div>
+           		<div id='categoria_box4' class='clearfix'>
+                   <p id='categoria_text1'>
+                   Mis categorias<br />
+                   </p>
+                   <div id='categoria_box5' class='clearfix'>
+                   </div>
+               </div>
+               <div class="mis_categorias">
+                        <ul class="lista_mis_categorias">
+                            <li>Magisterio</li>
+                            <li>Vaticano</li>
+                            <li>Categoria 1</li>
+                        </ul>
+                </div>
+                <div id='categoria_box4' class='clearfix'>
+                   <p id='categoria_text1'>
+                   Categorias<br />
+                   </p>
+                   <div id='categoria_box5' class='clearfix'>
+                   </div>
+               </div>
+               <div class="default_categorias">
+                        <ul class="lista_default_categorias">
+                            <li>Libros</li>
+                            <li>Audiolibros</li>
+                            <li>Musica</li>
+                        </ul>
+                </div>
+                <div class="btns_carrito">
+                	<a id="btn_edit" href="#" data-role="button" data-inline="true" data-theme="c" data-mini="true">Editar</a>
+                	<a id="btn_new" href="#" data-role="button" data-inline="true" data-theme="c" data-mini="true">Nueva</a>
+                </div>
+            </div> <!--Edit Biblioteca Drop-->
+            <div id="faqLibThumbs" class="howto_drop grid-full">
+                <div class="gray_pointer howto_pointer"></div>
+           		<div class="productos grid-full" id="slider">
+                            <p class='text_howto'>
+                           Cómo navegar Paulus
+                           </p>
+                           <p class='text_howto1'>
+                           Librería/Iconos de navegación
+                           </p>
+                           <div id='box_howto' class='clearfix'>
+                               <p class='text_howto2'>
+                               Buscador
+                               </p>
+                               <div id='box_howto1' class='clearfix'>
+                                   <img class='image_howto image' src='images/howto_search_icon.png' />
+                               </div>
+                               <div id='box_howto2' class='clearfix'>
+                                   <img class='image_howto1 image' src='images/howto_search1.png' />
+                               </div>
+                               <div id='box_howto_1' class='clearfix'>
+                                   <img class='image_howto2 image' src='images/howto_search2.png' />
+                               </div>
+                               <p class='text_howto3'>
+                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In<br />
+                               </p>
+                           </div>
+                           <div id='box_howto3' class='clearfix'>
+                               <div id='box_howto4' class='clearfix'>
+                                   <img class='image_howto3 image' src='images/howto_perfil.png' />
+                               </div>
+                               <p class='text_howto4'>
+                               Perfil
+                               </p>
+                               <p class='text_howto5'>
+                               vulputate risus at, sodales sapien. Vivamus viverra sollicitudin convallis. Aenean sed purus felis. Quisque placerat<br />
+                               </p>
+                               <div id='box_howto5' class='clearfix'>
+                                   <img class='image_howto4 image' src='images/howto_perfil_icon.png' />
+                               </div>
+                           </div>
+                           <div id='box_howto6' class='clearfix'>
+                               <p class='text_howto6'>
+                               Carrito
+                               </p>
+                               <div id='box_howto7' class='clearfix'>
+                                   <img class='image_howto5 image' src='images/howto_search_icon.png' />
+                               </div>
+                               <div id='box_howto8' class='clearfix'>
+                                   <img class='image_howto6 image' src='images/howto_perfil2.png' />
+                               </div>
+                               <div id='box_howto9' class='clearfix'>
+                                   <img class='image_howto7 image' src='images/howto_carrito1.png' />
+                               </div>
+                               <p class='text_howto7'>
+                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In<br />
+                               </p>
+                           </div>
+                           <div id="pagers_howto"></div>
+                </div>
+            </div> <!--Instrucciones Drop-->
+       <div id='categoria_box3' class='clearfix'>
+           <div id='categoria_box4' class='clearfix'>
+               <p id='categoria_text1'>
+               Niños<br />
+               </p>
+               <div id='categoria_box5' class='clearfix'>
+               </div>
+           </div>
+           <div id="categoria" class='clearfix listcategory'>
+           	<ul id="kids">
+                            <li><a href="#page10"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li><a href="#page10"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li><a href="#page10"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li><a href="#page10"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                </ul>
+           </div>
+           <div id='categoria_box7' class='clearfix'>
+               <p id='categoria_text2'>
+               Reflexión<br />
+               </p>
+               <div id='categoria_box8' class='clearfix'>
+               </div>
+           </div>
+           <div id='categoria' class='clearfix listcategory'>
+           	<ul id="teens">
+                            <li><a href="#page10"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li><a href="#page10"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li><a href="#page10"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li><a href="#page10"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                </ul>
+           </div>
+           <div id='categoria_box13' class='clearfix'>
+               <p id='categoria_text4'>
+               Família<br />
+               </p>
+               <div id='categoria_box14' class='clearfix'>
+               </div>
+           </div>
+           <div id='categoria' class='clearfix listcategory'>
+           	<ul id="fathers">
+                            <li><a href="#page10"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li><a href="#page10"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li><a href="#page10"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li><a href="#page10"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                </ul>
+           </div>
+       </div>
+           <div data-role="footer" class="nav_bottom footer_perfil">
+                <nav>
+                    <img class="spliterb" src="images/spliter_black.png">
+                    <a onclick="onChange('page6')">Libros</a>
+                    <img class="spliterb" src="images/spliter_black.png">
+                    <a onclick="onChange('page6')">Audiolibros</a>
+                    <img class="spliterb" src="images/spliter_black.png">
+                    <a onclick="onChange('page6')">Música</a>
+                    <img class="spliterb" src="images/spliter_black.png">
+                </nav>
+            </div>
+	</div>
+</div>
+
+<!-----------------------Pagina Biblioteca Vista Lista----------------------->
+
+<div data-role="page" id="page9" data-title="San Pablo - biblioteca">
+	<div id="primaryContainer" class="primaryContainer clearfix">
+    	<header id="header_biblioteca">
+       		<div id='box_biblioteca' class='clearfix'>
+           <div id='box1_biblioteca' class='clearfix'>
+               <a href="#page3"><img id='image_biblioteca' src='images/logo_biblioteca.png' class='image' /></a>
+           </div>
+           <img id='image1_biblioteca' src='images/spliter_red.png' class='image' />
+           <p id='text_biblioteca'>
+           Libros
+           </p>
+           <img id='image2_biblioteca' src='images/spliter_red.png' class='image' />
+           <div id='box2_biblioteca' class='clearfix'>
+               <a href="#page4"><img id='image3_biblioteca' src='images/biblioteca_perfil_icon.png' class='image' /></a>
+           </div>
+       </div>
+       	<div id='menu_biblioteca' class='clearfix'>
+           <div id='box4_biblioteca' class='clearfix'>
+           	<div id="search" class="search_biblioteca">
+            	<div data-role="fieldcontain" class="search">
+                	<input class="search_home_1024" type="search" name="" id="searchinput1" value="" placeholder="Buscar"  />
+                </div>
+             </div> <!--Search grande-->
+           </div>
+           <div id='box5_biblioteca' class='clearfix'>
+           		<a href="#"><img id="btn_search_biblioteca_tinny" src="images/search_icon_36.png" class="image"/></a>
+               <a href="#page8"><img id='image4_biblioteca' src='images/icon_thumbs.png' class='image' /></a>
+               <a href="#"><img id='image5_biblioteca' src='images/icon_list.png' class='image' /></a>
+               <a id='btnLibConfig'><img id='image6_biblioteca'  src='images/icon_config.png' class='image'/> </a>
+               <a id="btnFaqLib"><img id='image7_biblioteca' src='images/FAQ_icon_36.jpg' class='image' />
+           </div>
+       </div>
+         </header>
+            <div id="editDiv" class="edit_drop grid-full">
+                <div class="gray_pointer edit_pointer"></div>
+           		<div id='categoria_box4' class='clearfix'>
+                   <p id='categoria_text1'>
+                   Mis categorias<br />
+                   </p>
+                   <div id='categoria_box5' class='clearfix'>
+                   </div>
+               </div>
+               <div class="mis_categorias">
+                        <ul class="lista_mis_categorias">
+                            <li>Magisterio</li>
+                            <li>Vaticano</li>
+                            <li>Categoria 1</li>
+                        </ul>
+                </div>
+                <div id='categoria_box4' class='clearfix'>
+                   <p id='categoria_text1'>
+                   Categorias<br />
+                   </p>
+                   <div id='categoria_box5' class='clearfix'>
+                   </div>
+               </div>
+               <div class="default_categorias">
+                        <ul class="lista_default_categorias">
+                            <li>Libros</li>
+                            <li>Audiolibros</li>
+                            <li>Musica</li>
+                        </ul>
+                </div>
+                <div class="btns_carrito">
+                	<a id="btn_edit" href="#" data-role="button" data-inline="true" data-theme="c" data-mini="true">Editar</a>
+                	<a id="btn_new" href="#" data-role="button" data-inline="true" data-theme="c" data-mini="true">Nueva</a>
+                </div>
+            </div> <!--Edit Biblioteca Drop-->
+            <div id="faqLib" class="howto_drop grid-full">
+                <div class="gray_pointer howto_pointer"></div>
+           		<div class="productos grid-full" id="slider">
+                            <p class='text_howto'>
+                           Cómo navegar Paulus
+                           </p>
+                           <p class='text_howto1'>
+                           Librería/Iconos de navegación
+                           </p>
+                           <div id='box_howto' class='clearfix'>
+                               <p class='text_howto2'>
+                               Buscador
+                               </p>
+                               <div id='box_howto1' class='clearfix'>
+                                   <img class='image_howto image' src='images/howto_search_icon.png' />
+                               </div>
+                               <div id='box_howto2' class='clearfix'>
+                                   <img class='image_howto1 image' src='images/howto_search1.png' />
+                               </div>
+                               <div id='box_howto_1' class='clearfix'>
+                                   <img class='image_howto2 image' src='images/howto_search2.png' />
+                               </div>
+                               <p class='text_howto3'>
+                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In<br />
+                               </p>
+                           </div>
+                           <div id='box_howto3' class='clearfix'>
+                               <div id='box_howto4' class='clearfix'>
+                                   <img class='image_howto3 image' src='images/howto_perfil.png' />
+                               </div>
+                               <p class='text_howto4'>
+                               Perfil
+                               </p>
+                               <p class='text_howto5'>
+                               vulputate risus at, sodales sapien. Vivamus viverra sollicitudin convallis. Aenean sed purus felis. Quisque placerat<br />
+                               </p>
+                               <div id='box_howto5' class='clearfix'>
+                                   <img class='image_howto4 image' src='images/howto_perfil_icon.png' />
+                               </div>
+                           </div>
+                           <div id='box_howto6' class='clearfix'>
+                               <p class='text_howto6'>
+                               Carrito
+                               </p>
+                               <div id='box_howto7' class='clearfix'>
+                                   <img class='image_howto5 image' src='images/howto_search_icon.png' />
+                               </div>
+                               <div id='box_howto8' class='clearfix'>
+                                   <img class='image_howto6 image' src='images/howto_perfil2.png' />
+                               </div>
+                               <div id='box_howto9' class='clearfix'>
+                                   <img class='image_howto7 image' src='images/howto_carrito1.png' />
+                               </div>
+                               <p class='text_howto7'>
+                               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In<br />
+                               </p>
+                           </div>
+                           <div id="pagers_howto"></div>
+                </div>
+            </div> <!--Instrucciones Drop-->
+       <div id='container_biblioteca_list' class='clearfix'>
+          <ul class="lista_categorias">
+          	<div id='categoria_biblioteca' class='clearfix'>
+               <p id='categoria_text_biblioteca'>
+               Niños<br />
+               </p>
+               <div id='red_line' class='clearfix'>
+               </div>
+           </div>
+              <li>
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Libro de las respuestas</a>
+                      <br/>
+                      <span class="No_libros">Alsem Grum</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Niños</span>
+                  </div>
+              </li>
+              <li >
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Título</a>
+                      <br/>
+                      <span class="No_libros">Autor</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Niños</span>
+                  </div>
+              </li>
+              <li>
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Título</a>
+                      <br/>
+                      <span class="No_libros">Autor</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Niños</span>
+                  </div>
+              </li>
+             <div id='categoria_biblioteca' class='clearfix'>
+               <p id='categoria_text_biblioteca'>
+               Reflexión<br />
+               </p>
+               <div id='red_line' class='clearfix'>
+               </div>
+           </div>
+              <li >
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Título</a>
+                      <br/>
+                      <span class="No_libros">Autor</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Reflexión</span>
+                  </div>
+              </li>
+              <li>
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Título</a>
+                      <br/>
+                      <span class="No_libros">Autor</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Reflexión</span>
+                  </div>
+              </li>
+              <li>
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Título</a>
+                      <br/>
+                      <span class="No_libros">Autor</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Reflexión</span>
+                  </div>
+              </li>
+              <li>
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Título</a>
+                      <br/>
+                      <span class="No_libros">Autor</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Reflexión</span>
+                  </div>
+              </li>
+                 <div id='categoria_biblioteca' class='clearfix'>
+                   <p id='categoria_text_biblioteca'>
+                   Familia<br />
+                   </p>
+                   <div id='red_line' class='clearfix'>
+                   </div>
+               </div>
+              <li >
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Título</a>
+                      <br/>
+                      <span class="No_libros">Autor</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Familia</span>
+                  </div>
+              </li>
+              <li>
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Título</a>
+                      <br/>
+                      <span class="No_libros">Autor</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Familia</span>
+                  </div>
+              </li>
+              <li >
+              	<a href="#page10"><img src="images/img_categorias1.png"></a>
+                	<div class="txt_categorias">
+                      <a href="#page10">Título</a>
+                      <br/>
+                      <span class="No_libros">Autor</span>
+                  </div>
+                  <div id="info_biblioteca">
+                  	<img class="icon_peso" src="images/icon_peso.png"> <span class="peso">7.5 MB</span>
+                    <br/>
+                     <span class="tema">Familia</span>
+                  </div>
+              </li>
+          </ul>
+       </div>
+           <div data-role="footer" class="nav_bottom">
+                <nav>
+                    <img class="spliterb" src="images/spliter_black.png">
+                    <a onclick="onChange('page6')">Libros</a>
+                    <img class="spliterb" src="images/spliter_black.png">
+                    <a onclick="onChange('page6')">Audiolibros</a>
+                    <img class="spliterb" src="images/spliter_black.png">
+                    <a onclick="onChange('page6')">Música</a>
+                    <img class="spliterb" src="images/spliter_black.png">
+                </nav>
+            </div>
+	</div>
+</div>
+
+
 <!-----------------------Pagina PDF----------------------->
 
-<div data-role="page" id="page8" data-title="San Pablo - Language">
+<div data-role="page" id="page10" data-title="San Pablo - lector">
     <section id="content_language">
       <div class="container PDF">
       	<object type="text/html" data="pdf.js-master/web/viewer.html" width="100%" height="100%"></object>

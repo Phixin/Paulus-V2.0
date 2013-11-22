@@ -1,0 +1,482 @@
+#box_biblioteca {
+    float: left;
+    height: 62px;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    background-color: #DF0F1D;
+}
+
+#box2_biblioteca {
+    float: left;
+    height: auto;
+    margin-left: 9.57416%;
+    margin-top: 15px;
+    clear: none;
+    width: auto;
+}
+
+#image3_biblioteca {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#box1_biblioteca {
+    float: left;
+    height: auto;
+    margin-left: 8.531286%;
+    margin-top: 15px;
+    clear: none;
+    width: auto;
+}
+
+#image_biblioteca {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#text_biblioteca {
+    float: left;
+    font-size: 1.5em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    word-wrap: break-word;
+    margin-left: 22.553954%;
+    margin-top: 17px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+}
+
+#menu_biblioteca {
+    float: left;
+    height: 85px;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: both;
+    width: 100%;
+}
+
+#image2_biblioteca {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 23.165918%;
+    margin-top: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image1_biblioteca {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 9.105229%;
+    margin-top: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#box4_biblioteca {
+    float: left;
+    height: 57px;
+    margin-left: 0%;
+    margin-top: 15px;
+    clear: none;
+    width: 65.863992%;
+}
+
+#box5_biblioteca {
+    float: left;
+    height: 57px;
+    margin-left: 1.200391%;
+    margin-top: 15px;
+    clear: none;
+    width: 25.59929%;
+}
+
+#image4_biblioteca {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 4.689158%;
+    margin-top: 12px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image5_biblioteca {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 10.227032%;
+    margin-top: 12px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image6_biblioteca {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 9.031756%;
+    margin-top: 12px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image7_biblioteca {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 10.241177%;
+    margin-top: 11px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#box6_biblioteca {
+    float: left;
+    height: 232px;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: both;
+    width: 100%;
+}
+
+#btn_search_biblioteca_tinny {
+	display: none;
+}
+
+#container_biblioteca_list{
+    height: auto;
+    clear: both;
+    width: 100%;
+	color: #454545;
+	font-size: 200%;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#container_biblioteca_list li{
+	display: block;
+	margin: 0;
+	position: relative;
+	overflow: auto;
+	text-align: left;
+	padding:1%;
+	border-top: 1px solid #cfcfcf;
+	border-bottom: 1px solid #efefef;
+}
+
+#container_biblioteca_list li img{
+	margin-right: 10px;
+	position: relative;
+	float:left;
+}
+
+#categoria_biblioteca {
+    float: left;
+    height: 50px;
+    margin-left: 0.073573%;
+    margin-top: 4px;
+    clear: none;
+    width: 100%;
+    border-bottom-width: 1px;
+    border-bottom-style: none;
+}
+
+#categoria_text_biblioteca {
+    float: left;
+	font-size: 0.7em;
+	width: 20.534517%;
+	height: auto;
+	text-align: left;
+	font-weight: normal;
+	line-height: 1em;
+	word-wrap: break-word;
+	margin-left: 6.130287%;
+	margin-top: 12px;
+	clear: none;
+	min-height: 0px;
+	color: rgb(223, 15, 30);
+}
+
+#red_line {
+    float: left;
+    height: 10px;
+    margin-left: 0%;
+    margin-top: 18px;
+    clear: none;
+    width: 70.90842%;
+    border-bottom-color: rgb(223, 15, 30);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+#info_biblioteca {
+	width: 25%;
+	height: 100%;
+	position: absolute;
+	border-left: 1px solid #CCC;
+	right: 0;
+	top: 0;
+	color: #b4b4b4;
+	font-size: 0.5em;
+}
+
+.icon_peso {
+	margin: 45px;
+}
+
+.peso {
+	display: block;
+	margin-top: 46px;
+}
+
+.mis_categorias {
+	height: 150px;
+	clear: both;
+	width: 100%;
+	margin-top: 65px;
+	background-color: white;
+	overflow: auto;
+	color: #737373;
+}
+
+.lista_mis_categorias {
+	list-style: none;
+	padding: 0;
+	text-indent: 0;
+	margin: 0;
+}
+
+.lista_mis_categorias  li {
+	display: block;
+	margin: 0;
+	position: relative;
+	overflow: auto;
+	text-align: center;
+	padding: 1.5%;
+	border-top: 1px solid #cfcfcf;
+	border-bottom: 1px solid #efefef;
+	font-size: 2em;
+}
+
+.default_categorias {
+	height: 150px;
+	clear: both;
+	width: 100%;
+	margin-top: 65px;
+	background-color: white;
+	overflow: auto;
+	color: #737373;
+}
+
+.lista_default_categorias {
+	list-style: none;
+	padding: 0;
+	text-indent: 0;
+	margin: 0;
+}
+
+.lista_default_categorias  li {
+	display: block;
+	margin: 0;
+	position: relative;
+	overflow: auto;
+	text-align: center;
+	padding: 1.5%;
+	border-top: 1px solid #cfcfcf;
+	border-bottom: 1px solid #efefef;
+	font-size: 2em;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+   #box5_biblioteca {
+        margin-top: 15px;
+        margin-left: 1.201172%;
+        clear: none;
+        width: 32.925781%;
+        height: 57px;
+   }
+
+   #box4_biblioteca {
+        width: 58.53125%;
+        height: 57px;
+   }
+}
+
+@media only screen and (max-width: 640px) {
+   #box5_biblioteca {
+        margin-top: 15px;
+        margin-left: 1.200521%;
+        clear: none;
+        width: 41.458333%;
+        height: 57px;
+   }
+
+   #box4_biblioteca {
+        width: 49.997396%;
+        height: 57px;
+   }
+
+   #box2_biblioteca {
+        margin-top: 15px;
+        margin-left: 4.403646%;
+        clear: none;
+   }
+   
+   #container_biblioteca_list {
+	   font-size: 150%;
+	}
+	
+	.icon_peso {
+		margin-left: 30px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+   #image7_biblioteca {
+        margin-top: 12px;
+        margin-left: 6.483047%;
+        clear: none;
+   }
+
+   #box5_biblioteca {
+        margin-top: 15px;
+        margin-left: 1.201172%;
+        clear: none;
+        width: 45.608724%;
+   }
+
+   #box2_biblioteca {
+        margin-top: 15px;
+        margin-left: 2.674279%;
+        clear: none;
+   }
+
+   #box4_biblioteca {
+        width: 49.996745%;
+        height: 57px;
+   }
+   
+   #container_biblioteca_list {
+	   font-size: 100%;
+	}
+	
+	#categoria_text_biblioteca {
+		font-size:1.2em;
+	}
+	
+	#info_biblioteca {
+		font-size:0.8em;
+	}
+	
+	.icon_peso {
+		margin-left: 18px;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+   #box2_biblioteca {
+        margin-top: 15px;
+        margin-left: 6.982422%;
+        clear: none;
+   }
+
+   #text_biblioteca {
+        margin-top: 17px;
+        margin-left: 10.678711%;
+        clear: none;
+   }
+
+   #image2_biblioteca {
+        margin-top: 0px;
+        margin-left: 12.231445%;
+        clear: none;
+   }
+
+   #box5_biblioteca {
+        margin-top: 15px;
+        margin-left: 2.788086%;
+        clear: none;
+        width: 97.760742%;
+        height: 57px;
+   }
+
+   #box4_biblioteca {
+	   display:none;
+   }
+
+   #btn_search_biblioteca_tinny {
+	   display: inherit;
+		width: 30px;
+		margin-top: 12px;
+		margin-left: 6%;
+		clear: none;
+		float: left;
+	}
+	
+   #image7_biblioteca {
+        width: 25px;
+        margin-top: 14px;
+        margin-left: 8.00938%;
+        clear: none;
+   }
+
+   #image6_biblioteca {
+        width: 25px;
+        margin-top: 15px;
+        margin-left: 9.037612%;
+        clear: none;
+   }
+
+   #image5_biblioteca {
+        width: 25px;
+        margin-top: 15px;
+        margin-left: 10.246234%;
+        clear: none;
+   }
+
+   #image4_biblioteca {
+        width: 25px;
+        margin-top: 15px;
+        margin-left: 9.80626%;
+        clear: none;
+   }
+   
+	.icon_peso {
+		margin-left: 3px;
+	}
+	
+	#categoria_text_biblioteca {
+		font-size: 0.8em;
+		margin-top: 17px;
+	}
+   
+}
+
