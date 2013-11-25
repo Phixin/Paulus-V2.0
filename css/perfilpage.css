@@ -92,9 +92,9 @@
 
 .edit_btn{
 	position: absolute;
-	width: %;
+	width: 10%;
 	height: 65%;
-	top: 15%;
+	top: 20%;
 	right: 0;
 	margin: 5px;
 	color:#C7C7C7 !important;
@@ -163,12 +163,12 @@
         margin-top: 25.125px;
         margin-left: 42.608643%;
         clear: none;
-        width: 14.666748%;
+        width: 20.666748%;
    }
 
    #perfil_box1 {
         margin-top: 51.125px;
-        margin-left: -17.333984%;
+        margin-left: -20.333984%;
         clear: none;
         width: 20.009359%;
         height: 163.546875px;

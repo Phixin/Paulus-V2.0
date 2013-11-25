@@ -1,4 +1,3 @@
-
 /* Responsive Resets
 -------------------------------------------------------------- */
 @-o-viewport {
@@ -29,7 +28,7 @@ canvas {
     The `max-width` property is the width governer. I dare you to experiment
     with setting this larger, something like 1280px.
   */
-	max-width: 1280px;
+	/*max-width: 1280px;*/
 	width:92%;
 	margin:0px auto;
 	position: relative;
@@ -84,8 +83,8 @@ and (min-device-width: 320px) {
 	}
 	
 	.footer_registro{
-		margin-top:80px;
-		height:110px;
+		margin-top:150px;
+		height:1px;
 	}
 	
 	.register_fields{
@@ -103,10 +102,10 @@ and (min-device-width: 320px) {
 	}
 	
 	.box_form{
-		height:27em;
+		height:32em;
 	}
 	.last_big{
-		height:17em;
+		height:22em;
 	}
 	.box_language{
 		padding-top:33%;
@@ -213,7 +212,7 @@ and (orientation : portrait) {
 @media screen and (min-width: 768px) {
 	.min-width-480px .ui-input-search{
 		border: 1px solid !important;
-		width: 73% !important;
+		width: 100% !important;
 		height: 43px;
 		padding-top: 3px;
 		}
@@ -281,12 +280,12 @@ and (orientation : portrait) {
 		margin-left:5%;
 	}
 	.last{
-		margin-top:30%px;
+		margin-top:30%;
 		height:5px;
 	}
 	
 	.box_form{
-		height:22em;
+		height:24em;
 		padding-left:6%;
 	}
 	.last_big{
@@ -423,21 +422,24 @@ code {
 .box_language{
 	margin:0;
 	}
+#content_language {
+	background:#C91E26;
+	}
 .bg_red{
 	background-image:url(../images/bg_idioma_1024.jpg);
-	max-height:auto;
+	max-height:100%;
 	}
 .bg_red_registro{
 	background-image: url(../images/bg_idioma_1024.jpg);
 	background-repeat:repeat-y;
 	width:100%;
-	height:875px;
+	height:1106px;
 	}
 
 .logo_color{
 	position:relative;
 	float:left;
-	margin:8% 0 0 21%;
+	margin:8% 0 0 13%;
 	}
 .head_registro{
 	background-color:#FFF;
@@ -457,13 +459,13 @@ code {
 .footer_registro{
 	background-color:#FFF;
 	width:100%;
-	min-height:110px;
+	min-height:1px;
 	max-height:170px;
 	}
 .register_fields{
 	max-width:84%;
 	min-width:55%;
-	max-height:auto;
+	max-height:100%;
 	}
 .big_field{
 	width:98% !important;
@@ -482,14 +484,14 @@ code {
 	margin-top:1em;
 	}
 .btns_registro > .grid-half > .ui-btn {
-	width: 50%;
-	margin: .7em auto 0 25%;
+	width: 106%;
+	margin: .7em auto 0 -47%;
 }
 .btn_center {
-	margin-left:28%;
+	margin-left:46%;
 	}
 .mas_info{
-	max-height:16em;
+	max-height:17em;
 	overflow:auto;
 	float:left;
 	color:#FFF;
@@ -502,7 +504,7 @@ code {
 	max-height:10px;
 	}
 .box_form{
-	max-height:27em;
+	max-height:33em;
 	min-height:22em;
 	border:#CCCCCC medium solid;
 }
@@ -604,7 +606,7 @@ code {
 	float: left;
 	width: 46%;
 	margin-top: -3px;
-	margin-left:16%;
+	margin-left:7%;
 	}
 .second_link_sesion{
 	margin-left:-16%;
@@ -666,7 +668,7 @@ code {
 .red_pointer_position{
 	margin-left: 28.7%;
 	float: left;
-	margin-top: 2.3%;
+	margin-top: 55%;
 	position: absolute;
 	z-index: 100;
 	}
@@ -765,7 +767,7 @@ code {
 	margin: 0;
 	height: auto;
 	position: absolute;
-	width: 14%;
+	width: 45%;
 	right: 4.9%;
 	background-color: #DF0F1D;
 	color: #FFF;
@@ -1016,7 +1018,7 @@ code {
     float: left;
     height: 98px;
     margin-left: 0%;
-    margin-top: 80px;
+    margin-top: 25px;
     clear: both;
     width: 81.723863%;
     background-color: rgb(255, 255, 255);
@@ -1152,6 +1154,9 @@ code {
 	color: #FFF;
 }
 
+.ui-header .ui-title, .ui-footer .ui-title {
+	margin: margin: .6em 30px .8em !important;
+}
 
 /*----------------------------------------------------------- SLIDER ------------------------------------*/
 
@@ -1162,13 +1167,14 @@ code {
 
 .mi-slider ul {
 	list-style-type: none;
-	position: absolute;
+	position: relative;
 	width: 100%;
 	left: 0;
 	overflow: hidden;
 	text-align: center;
 	bottom: 0;
 	padding: 0;
+	height: 252px;
 }
 
 .no-js .mi-slider ul {
@@ -1317,8 +1323,9 @@ code {
 
 
 @media only screen and (max-width: 1024px) {
+      
    #box_howto3 {
-        margin-top: 90px;
+        margin-top: 25px;
         margin-left: 0%;
         clear: both;
         width: 100%;
@@ -1494,6 +1501,7 @@ code {
 		 margin-top: -30px;
 		margin-left: 92.58%;
 	}
+	/*
 	#detalle_slider {
 		height:322px !important;
 		width: 753.5px !important;
@@ -1504,9 +1512,7 @@ code {
 	#detalle_categoria ul {
 		height: 260px !important;
 	}
-	.box_form {
-		height: 24em;
-	}
+	*/
 	.txt_politicas {
 		max-height: 13em;
 		height: 13em;
@@ -1517,7 +1523,7 @@ code {
 		margin-left:3%;
 	}
 	.search {
-		width: 77%;
+		width: 85%;
 	}
 	.min-width-480px .ui-input-search {
 		width: 100% !important;
@@ -1532,12 +1538,20 @@ code {
 	#select_language_box {
 		margin-left:-5%;
 	}
-	.img_social {
+	#social_image_google {
 		margin-bottom:7px;
 	}
+	#social_image_fb {
+		margin-bottom:7px;
+	}
+	#social_image_tw {
+		margin-bottom:7px;
+	}
+	/*
 	.btns_in {
 		margin-left:22px;
 	}
+	*/
 	.footer_registro {
 		margin-top:125px;
 	}
@@ -1562,6 +1576,7 @@ code {
 		margin-left: 32.4%;
 		margin-top: 2.5%;
 	}
+	/*
 	#detalle_slider {
 		height:322px !important;
 		width: 584.5px !important;
@@ -1572,11 +1587,9 @@ code {
 	#detalle_categoria ul {
 		height: 260px !important;
 	}
+	*/
 	.txt_politicas {
 		height:8em;
-	}
-	.btn_center {
-		margin-left:2%;
 	}
 	.edit_drop > #categoria_box4 > #categoria_text1 {
 		width:16.534517%;
@@ -1587,6 +1600,9 @@ code {
 	.edit_pointer{
 		margin-left: 73.90%;
 		margin-top: -6%;
+	}
+	#perfil_fields{
+		font-size:90%;
 	}
 }
 
@@ -1617,7 +1633,7 @@ code {
 		font-weight:normal;
 		}
 	#search_tinny{
-		display: inline-block !important;
+		display: inline !important;
 		width: 25%;
 		float: left;
 		margin-left: 71%;
@@ -1625,9 +1641,9 @@ code {
 	.search_drop{
 		display:none;
 		}
-	#search{
-		display:none
-	}
+	#search {
+		display:none;
+		}
 	.sesion_pointer{
 		margin-top: -7%;
 		margin-left: 66%;
@@ -1646,29 +1662,36 @@ code {
 		width: 72%;
 		margin-left: 13%;
 		}
-	.img_social{
+	#social_image_google {
 		margin-bottom:10px;
 	}
+	#social_image_fb {
+		margin-bottom:10px;
+	}
+	#social_image_tw {
+		margin-bottom:10px;
+	}
+
    #box_howto3 {
         width: 100%;
         height: 98px;
    }
 
    #box_howto {
-        margin-top: 50px;
-        margin-left: 0%;
-        clear: both;
-        width: 100%;
-        height: 98px;
+        margin-top: 19px;
+		margin-left: 0%;
+		clear: both;
+		width: 100%;
+		height: 130px;
    }
 
    .text_howto {
-        width: 45.065104%;
+        width: 92.065104%;
    }
 
    .text_howto1 {
         height: auto;
-        width: 57.333984%;
+        width: 90.333984%;
    }
 
    #box_howto6 {
@@ -1682,33 +1705,33 @@ code {
    }
 
    #box_howto1 {
-        margin-top: 0px;
-        margin-left: 1.464844%;
-        clear: both;
-        width: 4.388021%;
+        margin-top: -17px;
+		margin-left: 1.464844%;
+		clear: both;
+		width: 4.388021%;
    }
 
    .text_howto3 {
         margin-top: 13px;
-        margin-left: -88.834635%;
-        clear: none;
-        width: 31.292318%;
-        height: auto;
+		margin-left: -93.834635%;
+		clear: none;
+		width: 38.292318%;
+		height: auto;
    }
 
    #box_howto2 {
-        margin: -40px 0px 0px 36.809896%;
-        clear: none;
-        width: 26.738281%;
-        height: 128.359375px;
+        margin: -11px 0px 0px 40.809896%;
+		clear: none;
+		width: 26.738281%;
+		height: 128.359375px;
    }
 
    #box_howto_1 {
-        margin-top: -40px;
-        margin-left: 1.608073%;
-        clear: none;
-        width: 26.839193%;
-        height: 128.359375px;
+        margin-top: -10px;
+		margin-left: 1.608073%;
+		clear: none;
+		width: 26.839193%;
+		height: 128.359375px;
    }
 
    .text_howto4 {
@@ -1780,9 +1803,11 @@ code {
    .howto_pointer {
 	   margin-left:90.5%;
 	}
+	/*
 	#detalle_categoria {
 		width:753% !important;
 	}
+	*/
 	.red_pointer_position {
 		margin-left: 19.4%;
 		margin-top: 3.5%;
@@ -1793,7 +1818,7 @@ code {
 	}
 	
 	.search_biblioteca > .search > .ui-input-search {
-		background-size: 19%;
+		background-size: 30%;
 		width: 141%;
 		height: 38px;
 	}
@@ -1806,7 +1831,15 @@ code {
 		margin-left: 78.45%;
 		margin-top: -7%;
 	}
-
+	.box_form {
+		height: 33em;
+	}
+	.edit_drop > #categoria_box4 > #categoria_text1 {
+		width:30.534517%;
+	}
+	.edit_drop > #categoria_box4 > #categoria_box5 {
+		width:57.90842%;
+	}
 }
 
 @media screen and (max-width: 320px){ 
@@ -2084,9 +2117,6 @@ code {
 		margin-left: 65.45%;
 		margin-top: -12%;
 	}
-
-	
-
 /*--------------------------------------
 			Este estilo activa la visibilidad del buscador en 320px--------------------*/
 	.search_drop{

@@ -490,7 +490,7 @@ div.tabs_content > div {
     color: rgb(0, 0, 0);
 }
 
-#star1 {
+#star1_comment {
     float: left;
     width: auto;
     max-width: 100%;
@@ -501,7 +501,7 @@ div.tabs_content > div {
     color: rgb(0, 0, 0);
 }
 
-#star2 {
+#star2_comment {
 	  float: left;
 	  width: auto;
 	  max-width: 100%;
@@ -511,7 +511,7 @@ div.tabs_content > div {
 	  color: rgb(0, 0, 0);
 }
 
-#star3 {
+#star3_comment {
     float: left;
     width: auto;
     max-width: 100%;
@@ -521,7 +521,7 @@ div.tabs_content > div {
     color: rgb(0, 0, 0);
 }
 
-#star4 {
+#star4_comment {
     float: left;
     width: auto;
     max-width: 100%;
@@ -531,7 +531,7 @@ div.tabs_content > div {
     color: rgb(0, 0, 0);
 }
 
-#star5 {
+#star5_comment {
     float: left;
     width: auto;
     max-width: 100%;
@@ -700,8 +700,9 @@ div.tabs_content > div {
         margin-right: 0%;
         margin-top: -189px;
         clear: right;
-        width: 315px;
+        width: 332px;
         height: auto;
+		overflow:hidden;
    }
 
    #tab_detalle {
@@ -1152,14 +1153,14 @@ div.tabs_content > div {
 }
 
 @media only screen and (max-width: 935px) {
-   #detalle_slider {
+/*   #detalle_slider {
         margin-right: 0.053476%;
         margin-top: 27px;
         clear: both;
         height: 318px;
         width: 934.5px;
    }
-
+*/
    #subHeader {
         width: 100%;
         height: 50px;
@@ -1456,6 +1457,46 @@ div.tabs_content > div {
 		width:100%;
 	}
 	
+	#detalle_slider {
+		float: left;
+		height: auto;
+		margin-left: 0.077314%;
+		margin-top: 0px;
+		clear: both;
+		width: 100%;
+		overflow: hidden;
+	}
+	
+	#detalle_categoria {
+		float: left;
+		height: auto;
+		margin-left: 0.077314%;
+		margin-top: 0px;
+		clear: both;
+		width: 100%;
+		overflow: auto;
+	}
+	
+	#detalle_categoria ul {
+		list-style-type: none;
+		width: 500%;
+		left: 0;
+		overflow: hidden;
+		text-align: center;
+		bottom: 0;
+		padding: 0;
+		height: 240px;
+		margin-left: 2%;
+	}
+	
+	#detalle_categoria ul li {
+		display: inline-block;
+		padding: 0;
+		width: auto;
+		max-width: 100%;
+		float: left;
+	}
+	
 }
 
 @media only screen and (max-width: 395px) {
@@ -1491,14 +1532,6 @@ div.tabs_content > div {
         margin-top: 17px;
         margin-left: 8.53125px;
         clear: left;
-   }
-
-   #detalle_slider {
-        width: 934.5px;
-        height: 318px;
-        margin-right: 0.126582%;
-        margin-top: 16px;
-        clear: both;
    }
 
    #footer {

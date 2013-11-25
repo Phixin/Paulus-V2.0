@@ -57,7 +57,7 @@
     font-weight: normal;
     line-height: 1em;
     word-wrap: break-word;
-    margin-left: 22.553954%;
+    margin-left: 14.553954%;
     margin-top: 17px;
     clear: none;
     min-height: 0px;
@@ -78,7 +78,7 @@
     width: auto;
     max-width: 100%;
     height: auto;
-    margin-left: 23.165918%;
+    margin-left: 14.165918%;
     margin-top: 0px;
     clear: none;
     color: rgb(0, 0, 0);
@@ -313,7 +313,9 @@
 	font-size: 2em;
 }
 
-
+#btnLibConfigThumb, #btnLibConfig {
+	cursor:pointer;
+}
 
 @media only screen and (max-width: 800px) {
    #box5_biblioteca {
@@ -370,17 +372,17 @@
         margin-top: 15px;
         margin-left: 1.201172%;
         clear: none;
-        width: 45.608724%;
+        width: 52.608724%;
    }
 
    #box2_biblioteca {
         margin-top: 15px;
-        margin-left: 2.674279%;
+        margin-left: 4.674279%;
         clear: none;
    }
 
    #box4_biblioteca {
-        width: 49.996745%;
+        width: 44.996745%;
         height: 57px;
    }
    
@@ -398,6 +400,10 @@
 	
 	.icon_peso {
 		margin-left: 18px;
+	}
+	
+	#box5_biblioteca > a > img {
+		width:15%;
 	}
 }
 
@@ -477,6 +483,8 @@
 		font-size: 0.8em;
 		margin-top: 17px;
 	}
-   
+	#box5_biblioteca > a > img {
+		width:10%;
+	}
 }
 

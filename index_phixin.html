@@ -334,15 +334,6 @@
       document.getElementById("btnLibConfigThumb").addEventListener ("click", onShowLibConfigThumb, false);
       document.getElementById("btnFaqLibThumbs").addEventListener ("click", onShowHelpThumb, false);
       document.getElementById("btnFaqLib").addEventListener ("click", onShowHelp, false);
-
-      document.getElementById("sendComment").addEventListener ("click", onSendComment, false);
-
-      document.getElementById("edit_mail").value = "myResultnombreTest";
-
-      for (var i = 1; i < 6; i++) 
-      {
-        document.getElementById("star"+i+"_comment").addEventListener ("click", onClickStarComment, false);
-      };
 			
 			console.log(document.getElementById("detalle_btnComprar"))
 			//$("body").css({"height": 480 });
@@ -478,197 +469,6 @@
       
       setAlltoFalse();
     }
-
-
-
-    function onClickStarComment(e)
-    {
-      if(e.target.id == "star1_comment")
-      {
-        allStarFill();
-        $("#star2_comment").css({"opacity":"0.3"});
-        $("#star3_comment").css({"opacity":"0.3"});
-        $("#star4_comment").css({"opacity":"0.3"});
-        $("#star5_comment").css({"opacity":"0.3"});
-      }
-
-      if(e.target.id == "star2_comment")
-      {
-        allStarFill();
-        $("#star3_comment").css({"opacity":"0.3"});
-        $("#star4_comment").css({"opacity":"0.3"});
-        $("#star5_comment").css({"opacity":"0.3"});
-      }
-
-      if(e.target.id == "star3_comment")
-      {
-        allStarFill();
-        $("#star4_comment").css({"opacity":"0.3"});
-        $("#star5_comment").css({"opacity":"0.3"});
-      }
-
-      if(e.target.id == "star4_comment")
-      {
-        allStarFill();
-        $("#star5_comment").css({"opacity":"0.3"});
-      }
-
-      if(e.target.id == "star5_comment")
-      {
-        allStarFill();
-      }
-    }
-
-    function allStarFill()
-    {
-        $("#star1_comment").css({"opacity":"1"});
-        $("#star2_comment").css({"opacity":"1"});
-        $("#star3_comment").css({"opacity":"1"});
-        $("#star4_comment").css({"opacity":"1"});
-        $("#star5_comment").css({"opacity":"1"});
-    }
-
-    function onSendComment()
-    {
-      //alert(document.getElementById("opinion_area").value)
-      if(document.getElementById("opinion_area").value != "")
-      {
-       if(document.getElementById("opinion_mail").value != "") 
-       {
-        if(document.getElementById("opinion_name").value != "") 
-        {
-          alert("tu comentario ha sido enviado");
-          document.getElementById("opinion_name").value = ""; 
-          document.getElementById("opinion_mail").value = ""; 
-          document.getElementById("opinion_area").value = ""; 
-        }else{
-          alert("ingresa un nombre");
-        }
-       }else{
-        alert("ingresa un mail");
-       }
-      }else{
-        alert("ingresa una opinion");
-      }
-    }
-//-----------------------------------------------
-
-    function onLoginMe()
-    {
-
-      var myMail = document.getElementById("correo").value;
-      var myPass = document.getElementById("pass").value;
-
-      if(myMail != "")
-      {
-        if(myMail != "") 
-        {
-           var myparams = {"name": myMail,"pass": myPass}
-          regMe("http://dev-app-paulus.gotpantheon.com/wsapi/user/login", myparams, "POST");
-        }else{
-          alert("ingesa una constraseña");
-        }
-      }else{
-        alert("ingresa un email");
-      }
-      /*
-      if(document.getElementById("correoLogin").value == "test@nivelics.com")
-      {
-       if(document.getElementById("passLogin").value == "123")
-       {
-        onChange("page3");
-       } 
-      }else{
-        alert("el usuario no existe");
-      }
-      */
-    }
-
-    function validateEmail(email) 
-    { 
-      var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    } 
-
-    function registerMe()
-    {
-      var myMail    = document.getElementById("correoReg").value;
-      var myPass    = document.getElementById("password").value;
-      var myPass2   = document.getElementById("password_confirm").value;
-      var myCountry = document.getElementById("country").value;
-      var myCity    = document.getElementById("city").value;
-
-
-      if(validateEmail(myMail))
-      {
-        if(myCountry != "")
-        {
-          if(myPass != "")
-          {
-            if(myPass2 != "")
-            {
-              if(myCity != "")
-              {
-                if(myPass2 == myPass)
-                {
-                  alert("registro exitoso");
-
-                  var myparams = {"name": myMail,"pass": myPass,"mail": myMail}
-
-                  regMe("http://dev-app-paulus.gotpantheon.com/wsapi/user/register", myparams, "POST");
-                }else{
-                  alert("Las contraseñas no coinciden");
-                }
-              }else{
-                alert("Ingresa una ciudad");
-              }
-            }else{
-              alert("repite tu contraseña");
-            }
-          }else{
-            alert("Ingresa una contraseña");
-          }
-        }else{
-          alert("Ingresa un país");
-        }
-      }else{
-        alert("Ingresa un mail válido");
-      }
-      
-      /*
-      console.log(myMail)
-      console.log(myPass)
-      console.log(myCountry)
-      console.log(myCity)
-      */
-
-    }
-
-
-    function editFieldMail()
-    {
-      $("#edit_mail").attr("readonly", false);
-      document.getElementById("edit_mail").focus();
-    }
-
-    function regMe(path, params, method) 
-    {
-      $.ajax(
-      {
-        type: method, 
-        url: path, 
-        data: params, 
-        success: function(myResult) 
-        {
-          //alert(myResult);
-          onChange("page3");
-          //document.getElementById("edit_mail").value = myResult.name;
-        }
-      })
-    }
-
-    
-
 	</script>
     
     
@@ -677,7 +477,7 @@
 
 <body>
 
-<!--_____________________________________________________________ Pagina _____________________________________________________________-->
+<!-----------------------Pagina----------------------->
 
 <div data-role="page" id="page" data-title="San Pablo - Language">
     <section id="content_language">
@@ -710,7 +510,7 @@
     </section>
 </div>
 
-<!--___________________________________________________________ Paginas REGISTRO ___________________________________________________________-->
+<!-----------------------Paginas REGISTRO----------------------->
 
 <div data-role="page" id="page1" data-title="San Pablo - Registro">
     <section id="content_registro">
@@ -754,7 +554,7 @@
 				</section>
                 <div class="grid-full btns_in">
                 	<input name="Botón" type="button" class="btn_registro" value="Registrarse" onClick="onChange('page2')"/>
-                    <input name="Botón" type="button" class="btn_login" value="login" onClick="onLoginMe()"/>
+                    <input name="Botón" type="button" class="btn_login" value="login" onClick="onChange('page2')"/>
                 </div>
             </div>
             <div class="footer_registro"></div>
@@ -780,7 +580,7 @@
                         <div class="box_form">
                             <div class="grid-half">
                               <div data-role="fieldcontain">
-                                <input class="big_field" type="text" name="textinput" id="correoReg" value="" placeholder="E-mail*"  />
+                                <input class="big_field" type="text" name="textinput" id="correo" value="" placeholder="E-mail*"  />
                               </div>
                             </div>
                             <div class="grid-half">
@@ -815,7 +615,7 @@
                             </div>
                             <div class="grid-full btns_registro">
                                 <div class="grid-half btn_center">
-                                    <input class="btn_registro" type="submit" value="Aceptar y registrarse" onClick="registerMe()"/>
+                                    <input class="btn_registro" type="submit" value="Aceptar y registrarse" onClick="onChange('page3')"/>
                                 </div>
                                 <div class="grid-half">
 <!--                                    <input class="btn_registro" type="submit" value="Registrarse" onClick="onChange('page3')"/>
@@ -935,7 +735,7 @@
             </div> <!--Search Drop-->
             <div id="userDiv" class="sesion_drop grid-full">
                 <div class="gray_pointer sesion_pointer"></div>
-           		<div class="txt_sesion"><a onClick="onChange('page1')">Logout</a></div>
+           		<div class="txt_sesion"><a onClick="onChange('page4')">Iniciar sesión</a> | <a onClick="onChange('page2')">Registrarse</a></div>
             </div> <!--Sesion Drop-->
             <div id="shopDiv" class="carro_drop grid-full">
                 <div class="gray_pointer carrito_pointer"></div>
@@ -1075,7 +875,7 @@
     </section>
 </div>
 
-<!--______________________________________________________ Pagina PERFIL ______________________________________________________ -->
+<!-----------------------Pagina PERFIL----------------------->
 
 
     <div data-role="page" id="page4" data-title="San Pablo - Perfil">
@@ -1093,28 +893,21 @@
            </div>
            <div id='perfil_fields' class='clearfix'>
               <ul class="lista_perfil">
-                  
                   <li>
-                      <input type="text" name="textinput" id="edit_mail" value="" readonly />
-                      <span class="edit_btn" onClick="editFieldMail()">Editar</span>
+                      <a href="#">Arnoby Alvarez Charry</a>
+                      <span class="edit_btn"><a href="#">Editar</a></span>
                   </li>
-                  
                   <li>
-                      <div data-role="fieldcontain" id="select_language_box">
-                  <label for="selectmenu" class="select"> </label>
-                  <select  onchange="onChange('page1')" class="btn_language" name="selectmenu" id="selectmenu">
-                    <option value="">Idioma</option>
-                    <option value="option1">Español</option>
-                    <option value="option2">Ingles</option>
-                    <option value="option3">Italiano</option>
-                    <option value="option4">Portugués</option>
-                    <option value="option5">Frances</option>
-                    <option value="option6">Polaco</option>
-                    <option value="option7">Alemán</option>
-                    <option value="index.html#page1">Japones</option>
-    
-                </select>
-              </div>
+                      <a href="#">arnobyalvarez@sanpablo.com.co</a>
+                      <span class="edit_btn"><a href="#">Editar</a></span>
+                  </li>
+                  <li>
+                      <a href="#">Password: **********</a>
+                      <span class="edit_btn"><a href="#">Editar</a></span>
+                  </li>
+                  <li>
+                      <a href="#">Español</a>
+                      <span class="edit_btn"><a href="#">Editar</a></span>
                   </li>
               </ul>
            </div>
@@ -1134,7 +927,7 @@
         </div>
     </div>
     
-<!--_____________________________________________________________ Pagina CATEGORIA _____________________________________________________________---->
+<!-----------------------Pagina CATEGORIA----------------------->
 
 <div data-role="page" id="page5" data-title="San Pablo - Categoria">
 	<div id="primaryContainer" class="primaryContainer clearfix">
@@ -1396,7 +1189,7 @@
 	</div>
 </div>
 
-<!--_____________________________________________________________ Pagina CATEGORIAS _____________________________________________________________-->
+<!-----------------------Pagina CATEGORIAS----------------------->
 
 <div data-role="page" id="page6" data-title="San Pablo - Categorias">
 	<div id="primaryContainer" class="primaryContainer clearfix">
@@ -1882,11 +1675,11 @@ Sigue a todo esto un Apéndice, en el que se ofrecen normas prácticas para la c
                    *Valoración
                    <br/>
                        <div class="grid-full">
-                           <img id='star1_comment' src='images/starPoints.png' class='image' />
-                           <img id='star2_comment' src='images/starPoints.png' class='image' />
-                           <img id='star3_comment' src='images/starPoints.png' class='image' />
-                           <img id='star4_comment' src='images/starPoints.png' class='image' />
-                           <img id='star5_comment' src='images/starPoints.png' class='image' />
+                           <img id='star1' src='images/starPoints.png' class='image' />
+                           <img id='star2' src='images/starPoints.png' class='image' />
+                           <img id='star3' src='images/starPoints.png' class='image' />
+                           <img id='star4' src='images/starPoints.png' class='image' />
+                           <img id='star5' src='images/starPoints.png' class='image' />
                        </div>
                    </div>
                </div>
@@ -1900,7 +1693,7 @@ Sigue a todo esto un Apéndice, en el que se ofrecen normas prácticas para la c
                      </div>
                    	
                    </div>
-                   <div id='form_opinion_box6' class='clearfix'><a id="sendComment"><img src="images/btn_send.jpg"></a>
+                   <div id='form_opinion_box6' class='clearfix'><a href="#"><img src="images/btn_send.jpg"></a>
                    </div>
                </div>
         

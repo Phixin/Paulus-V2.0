@@ -86,7 +86,7 @@
 
 #categoria_box4 {
     float: left;
-    height: 36px;
+    height: 50px;
     margin-left: 0.073573%;
     margin-top: 4px;
     clear: none;
@@ -326,13 +326,13 @@
 
 #categoria ul {
 	list-style-type: none;
-	width: 500%;
+	width: 164%;
 	left: 0;
 	overflow: hidden;
 	text-align: center;
 	bottom: 0;
 	padding: 0;
-	height: 275px;
+	height: 240px;
 	margin-left: 6%;
 }
 
@@ -356,7 +356,7 @@
 
 #categoria_image {
     float: none;
-    width: auto;
+    width: 100%;
     max-width: 100%;
     height: auto;
     margin-left: auto;
@@ -597,7 +597,7 @@
    }
 
    #categoria_text2 {
-        width: 27.929688%;
+        width: 30.929688%;
         height: auto;
    }
 
