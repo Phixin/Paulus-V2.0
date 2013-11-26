@@ -388,15 +388,41 @@
 			console.log(arrShop);
 			for(var i=0;i<arrShop.length; i++)
 			{
-				var liObject = '<li><a href="#">'+arrShop[i].title+
+				var liObject = '<li id="myLi_'+i+'"><a href="#">'+arrShop[i].title+
 				'</a><br/><div class="info_compra">'+arrShop[i].theme+
-				'<span class="precios_carrito">'+arrShop[i].price+'</span></div><span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span></li>';
+				'<span class="precios_carrito">'+arrShop[i].price+'</span></div><span class="trash_icon"><a onClick="onDeleteMe('+i+')"><img src="images/trash_icon.jpg"></a></span></li>';
+
+        var liObject2 = '<li id="my2Li_'+i+'"><a href="#">'+arrShop[i].title+
+        '</a><br/><div class="info_compra">'+arrShop[i].theme+
+        '<span class="precios_carrito">'+arrShop[i].price+'</span></div><span class="trash_icon"><a onClick="onDeleteMe('+i+')"><img src="images/trash_icon.jpg"></a></span></li>';
+
+        var liObject3 = '<li id="my3Li_'+i+'"><a href="#">'+arrShop[i].title+
+        '</a><br/><div class="info_compra">'+arrShop[i].theme+
+        '<span class="precios_carrito">'+arrShop[i].price+'</span></div><span class="trash_icon"><a onClick="onDeleteMe('+i+')"><img src="images/trash_icon.jpg"></a></span></li>';
+
+        var liObject4 = '<li id="my4Li_'+i+'"><a href="#">'+arrShop[i].title+
+        '</a><br/><div class="info_compra">'+arrShop[i].theme+
+        '<span class="precios_carrito">'+arrShop[i].price+'</span></div><span class="trash_icon"><a onClick="onDeleteMe('+i+')"><img src="images/trash_icon.jpg"></a></span></li>';
+
+        //document.getElementById("myCarShopping").addEventListener ("click", onClickStarComment, false);
+
 				$('#shopList').append(liObject);
-				$('#shopList2').append(liObject);
-				$('#shopList3').append(liObject);	
-				$('#shopList4').append(liObject);
+				$('#shopList2').append(liObject2);
+				$('#shopList3').append(liObject3);	
+				$('#shopList4').append(liObject4);
 			}
 		}
+
+    function onDeleteMe(e)
+    {
+
+      $("#myLi_"+e).css({"display":"none"});
+      $("#my2Li_"+e).css({"display":"none"});
+      $("#my3Li_"+e).css({"display":"none"});
+      $("#my4Li_"+e).css({"display":"none"});
+      //alert(document.getElementById("myLi_"+e));
+
+    }
 		
 		
 		//CHANGE HEIGHT MIN
@@ -660,9 +686,9 @@
         data: params, 
         success: function(myResult) 
         {
-          //alert(myResult);
+          //alert(myResult.user.name);
           onChange("page3");
-          //document.getElementById("edit_mail").value = myResult.name;
+          document.getElementById("edit_mail").value = myResult.user.name;
         }
       })
     }
@@ -905,7 +931,7 @@
 </div>
 
 
-<!-----------------------Pagina HOME----------------------->
+<!--___________________________________________ Pagina HOME ___________________________________________-->
 
 
 <div data-role="page" id="page3" data-title="San Pablo - Home">
@@ -944,24 +970,7 @@
                     <br/>
                     <div class="compras">
                         <ul id="shopList" class="lista_compras">
-                            <li>
-                            	<a href="#">Para salvarte</a>
-                                <br/>
-                                <div class="info_compra">Temas Públicos<span class="precios_carrito">Precio: $20.000</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
-                            <li>
-                            	<a href="#">Juventud sin limites</a>
-                                <br/>
-                                <div class="info_compra">Familia<span class="precios_carrito">Precio: Gratis</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
-                            <li>
-                            	<a href="#">El habitus en la comunicación</a>
-                                <br/>
-                                <div class="info_compra">Reflexión<span class="precios_carrito"><span class="promo_carrito">Precio: $20.000</span> Promoción: $15.000</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
+                            
                         </ul>
 					</div>
                     <div class="btns_carrito">
@@ -1095,14 +1104,14 @@
               <ul class="lista_perfil">
                   
                   <li>
-                      <input type="text" name="textinput" id="edit_mail" value="" readonly />
+                      <input type="text" name="textinput" id="edit_mail" value="" readonly="readonly" />
                       <span class="edit_btn" onClick="editFieldMail()">Editar</span>
                   </li>
                   
                   <li>
-                      <div data-role="fieldcontain" id="select_language_box">
+                      <div data-role="fieldcontain" id="select_language_box_perfil">
                   <label for="selectmenu" class="select"> </label>
-                  <select  onchange="onChange('page1')" class="btn_language" name="selectmenu" id="selectmenu">
+                  <select  class="btn_language" name="selectmenu" id="selectmenu">
                     <option value="">Idioma</option>
                     <option value="option1">Español</option>
                     <option value="option2">Ingles</option>
@@ -1171,24 +1180,7 @@
                     <br/>
                     <div class="compras">
                         <ul id="shopList2" class="lista_compras">
-                            <li>
-                            	<a href="#">Para salvarte</a>
-                                <br/>
-                                <div class="info_compra">Temas Públicos<span class="precios_carrito">Precio: $20.000</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
-                            <li>
-                            	<a href="#">Juventud sin limites</a>
-                                <br/>
-                                <div class="info_compra">Familia<span class="precios_carrito">Precio: Gratis</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
-                            <li>
-                            	<a href="#">El habitus en la comunicación</a>
-                                <br/>
-                                <div class="info_compra">Reflexión<span class="precios_carrito"><span class="promo_carrito">Precio: $20.000</span> Promoción: $15.000</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
+                            
                         </ul>
 					</div>
                     <div class="btns_carrito">
@@ -1433,24 +1425,7 @@
                     <br/>
                     <div class="compras">
                         <ul id="shopList3" class="lista_compras">
-                            <li>
-                            	<a href="#">Para salvarte</a>
-                                <br/>
-                                <div class="info_compra">Temas Públicos<span class="precios_carrito">Precio: $20.000</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
-                            <li>
-                            	<a href="#">Juventud sin limites</a>
-                                <br/>
-                                <div class="info_compra">Familia<span class="precios_carrito">Precio: Gratis</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
-                            <li>
-                            	<a href="#">El habitus en la comunicación</a>
-                                <br/>
-                                <div class="info_compra">Reflexión<span class="precios_carrito"><span class="promo_carrito">Precio: $20.000</span> Promoción: $15.000</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
+                            
                         </ul>
 					</div>
                     <div class="btns_carrito">
@@ -1636,7 +1611,7 @@
 	</div>
 </div>
 
-<!-----------------------Pagina DETALLE----------------------->
+<!--___________________________________________ Pagina DETALLE ___________________________________________-->
 
 <div data-role="page" id="page7" data-title="San Pablo - Detalle">
 	<div id="primaryContainer" class="primaryContainer clearfix">
@@ -1673,24 +1648,7 @@
                     <br/>
                     <div class="compras">
                         <ul id="shopList4" class="lista_compras">
-                            <li>
-                            	<a href="#">Para salvarte</a>
-                                <br/>
-                                <div class="info_compra">Temas Públicos<span class="precios_carrito">Precio: $20.000</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
-                            <li>
-                            	<a href="#">Juventud sin limites</a>
-                                <br/>
-                                <div class="info_compra">Familia<span class="precios_carrito">Precio: Gratis</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
-                            <li>
-                            	<a href="#">El habitus en la comunicación</a>
-                                <br/>
-                                <div class="info_compra">Reflexión<span class="precios_carrito"><span class="promo_carrito">Precio: $20.000</span> Promoción: $15.000</span></div>
-                                <span class="trash_icon"><a href="#"><img src="images/trash_icon.jpg"></a></span>
-                            </li>
+                            
                         </ul>
 					</div>
                     <div class="btns_carrito">
@@ -2489,7 +2447,7 @@ Sigue a todo esto un Apéndice, en el que se ofrecen normas prácticas para la c
 </div>
 
 
-<!-----------------------Pagina PDF----------------------->
+<!--___________________________________________ Pagina PDF ___________________________________________-->
 
 <div data-role="page" id="page10" data-title="San Pablo - lector">
     <section id="content_language">

@@ -13,7 +13,7 @@
 	.min-width-480px input.ui-input-text, .min-width-480px textarea.ui-input-text, .min-width-480px .ui-input-search {
 		text-align:left;
 	}
-	#select_language_box{
+	#select_language_box_perfil{
 		margin: -20px auto 0 -3%;
 	}
 }
@@ -38,7 +38,7 @@
 		overflow: hidden;
 		height: 250px;
 	}
-	#select_language_box{
+	#select_language_box_perfil{
 		margin: -20px auto 0 -17%;
 	}
 
@@ -92,12 +92,22 @@
 			width: 100%;
 		}
 		.min-width-480px .ui-field-contain > .ui-select > a {
-			width:15em;
+			width:72%;
 		}
 		.edit_btn {
 			right:13%;
 		}
 }
+
+@media screen and (max-width: 437px){
+	.ui-input-search {
+		margin: 4.2% 0 0 3% !important;
+	}
+	.search_drop {
+		background-position: -25px 0px !important;
+	}
+}
+
 
 @media screen and (max-width: 480px){
 	#search {
@@ -317,17 +327,70 @@
 		text-align: left;
 		border: none;
 	}
-	#select_language_box {
+	#select_language_box_perfil {
 		margin: -2px auto 0 -0.3%;
 	}
+		/*--------------------------------------
+			Este estilo activa la visibilidad del buscador en 480px--------------------*/
+	.search_drop{
+		display: inline-block !important;
+		height: 3em;
+		float: left;
+		background-position: 6px 0px;
+		background-repeat: no-repeat;
+		margin-top: -3%;
+		margin-bottom: 2%;
+		width: 100%;
+	}
+	.ui-input-search{
+		padding: 0;
+		background-repeat: no-repeat;
+		position: relative;
+		width: 68%;
+		height: 57%;
+		margin: 3.7% 0 0 3%;
+	}
+	.ui-input-search .ui-input-clear {
+		top: 0px !important;
+		margin-top: 0px !important;
+	}
+	.ui-input-search input.ui-input-text {
+		border: 0;
+		padding: 0.4em 0;
+		margin: 0;
+		display: block;
+		background: transparent none;
+		height: 100%;
+		margin-left: 18%;
+	}
+	.ui-icon-searchfield {
+		background-position: 1px -11px;
+	}
+	.ui-input-search input.ui-input-text {
+		margin-left: 12% !important;
+	}
+
 }
+
+@media screen and (max-width: 380px){
+	.ui-input-search {
+		margin: 4.6% 0 0 3% !important;
+	}
+	.search_drop {
+		background-position: -55px 0px !important;
+	}
+	#btn_search {
+		margin-top: -8%;
+	}
+}
+
 
 @media screen and (max-width: 320px){
 /*--------------------------------------
 			Este estilo activa la visibilidad del buscador en 320px--------------------*/
-		.search_drop{
-			display: inline-block !important;
-		}
+	.search_drop{
+		display: inline-block !important;
+	}
    #box2_biblioteca {
         margin-top: 15px;
         margin-left: 6.982422%;

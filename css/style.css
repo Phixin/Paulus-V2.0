@@ -520,8 +520,8 @@ code {
 	}
 .min-width-480px .ui-field-contain > .ui-select > a{
 	background-color: white;
-	width: 24em;
-	margin: 0 auto 0 24%;
+	width: 62%;
+	margin: 0 auto 0 18%;
 	padding: 0;
 	text-align: left;
 	text-indent: 5%;
@@ -702,7 +702,7 @@ code {
 	margin-left: 73%;
 	width: 22%;
 	height: 29%;
-	margin-top: -8.5%;
+	margin-top: -6.7%;
 	padding: 2%;
 }
 .txt_sesion{
@@ -1536,7 +1536,7 @@ code {
 		margin-left:17%;
 	}
 	#select_language_box {
-		margin-left:-5%;
+		margin-left:5%;
 	}
 	#social_image_google {
 		margin-bottom:7px;
@@ -2116,10 +2116,5 @@ code {
 	.edit_pointer{
 		margin-left: 65.45%;
 		margin-top: -12%;
-	}
-/*--------------------------------------
-			Este estilo activa la visibilidad del buscador en 320px--------------------*/
-	.search_drop{
-		display: inline-block !important;
 	}
 }
