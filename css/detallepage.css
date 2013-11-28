@@ -209,6 +209,8 @@ ul.tabs li a {
 div.tabs_content {
 	width:100%;
 	text-align:left;
+	overflow: auto;
+	height: 387px;
 }
 
 .comment_date, .comment_name, .comment {
@@ -555,6 +557,58 @@ div.tabs_content > div {
     clear: none;
     min-height: 17px;
 }
+
+#star1_value {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 40.006457%;
+    margin-top: 1px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#star2_value {
+	  float: left;
+	  width: auto;
+	  max-width: 100%;
+	  height: auto;
+	  margin-top: 1px;
+	  clear: none;
+	  color: rgb(0, 0, 0);
+}
+
+#star3_value {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#star4_value {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#star5_value {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
 
 #form_opinion_text2 {
     float: left;

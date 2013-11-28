@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page>
+    <language title="Idioma">
+    	<Es>Español</Es>
+    	<En>Ingles</En>
+    	<Po>Portugues</Po>
+    </language>
+</page>
+
+<page1>
+	<title>Iniciar sesión con otros servicios</title>
+	<subtitle>Ingrese con la su cuenta Paulus</name>
+	<login type="form">
+		<email>Email</email>
+		<password>Contraseña</password>
+	</login>
+	<buttons>
+		<sigin type="buttom">Registrarse</sigin>
+		<login type="buttom">Login</login>
+	</buttons>
+</page1>
+		
+<page2>
+	<title>Registro</title>
+	<register type="form">
+		<email>Email</email>
+		<password>Contraseña</password>
+		<confirm>Confirmar Contraseña</confirm>
+		<country>Pais</country>
+		<city>Ciudad/Departamento</city>
+	</register>
+	<subtitle>Políticas y Condiciones</subtitle>
+	<legals>Lorem ipsum dolor sit amet, consectetuer adipiscitng elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.</legals>
+	<button>
+		<acept type="buttom">Aceptar y Registrarse</acept>
+	</button>
+	<checkboxes>
+		<bible>Temas Biblicos</bible>
+		<family>Familia</family>
+		<catechesis>Catequesis</catechesis>
+		<comunication>Comunicación</comunication>
+		<theology>Teología</theology>
+		<philosophy>Filosofía</philosophy>
+		<superacion>Superación</superacion>
+		<others>Otras</others>
+	</checkboxes>
+</page2>
+
+<page3>
+	<header>
+		<search type="search">Buscar</search>
+		<logout>Cerrar sesión</logout>
+		<shopcar>Productos en mi carrito</shopcar>
+		<FAQ type="image" src="/images/howto_search1.png"></FAQ>
+	</header>
+	<menu>
+		<news>Novedades</news>
+		<category>Categorias</category>
+		<audio>Audio Libros</audio>
+	</menu>
+	<footer>
+		<Categories>Categorias</Categories>
+		<promotions>Promociones</promotions>
+		<outstanding>Destacado</outstanding>
+		<authors>Autores</authors>
+		<bought>Comprados</bought>
+	</footer>
+</page3>
+
+<page4>
+	<profile>Mi Perfil</profile>
+	<change type="form">
+		<edit>Editar</edit>
+	</change>
+	<footer>
+		<bookstore>Libreria</bookstore>
+		<library>Mi Biblioteca</library>
+		<Wishlist>Lista de Deseos</Wishlist>
+	</footer>
+</page4>
+
+<page5>
+	<title>Categorias</title>
+</page5>
+
+<page6>
+	<title>Libros</title>
+</page6>
+
+<page7>
+	<value>Valoración</value>
+	<price>Precio</price>
+	<buttons>
+		<shopcart src="/images/btnComprar.jpg"></shopcart>
+		<download src="/images/btnMuestra.jpg"></download>
+	</buttons>
+	<information>
+		<synopsis type="tab">
+			<title>Sinopsis</title>
+		</synopsis>
+		<detail type="tab">
+			<title>Detalles</title>
+			<language>Idioma</language>
+			<collection>Colección</collection>
+			<editorial>Editorial</editorial>
+			<pages>Páginas Impresas</pages>
+			<size>Tamaño</size>
+		</detail>
+		<assessment type="tab">
+			<value>Valoración</value>
+		</assessment>
+		<opinion type="tab">
+			<title>Opinión</title>
+			<name>*Nombre:</name>
+			<mail>*E-mail:</mail>
+			<vote>*Valoración</vote>
+			<comment>*Déjanos aquí tu opinión:</comment>
+			<send src="/images/btn_send.jpg"></send>
+		</opinion>
+	</information>
+</page7>
+
+<page8>
+	<title>Libros</title>
+	<edit>
+		<mycategories>Mis Categorias</mycategories>
+		<categories>Categorias</categories>
+	<buttons>
+		<modify type="buttom">Editar</modify>
+		<new type="buttom">Nueva</new>
+	</buttons>
+	</edit>
+	<footer>
+		<books>Libros</books>
+		<music>Música</music>
+		<audiobooks>Audiolibros</audiobooks>
+	</footer>
+</page8>

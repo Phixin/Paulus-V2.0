@@ -315,16 +315,16 @@
     width: 100%;
 }
 
-#categoria {
+.categoria {
     float: left;
     height: auto;
-    margin-left: 0.077314%;
+    margin-left: 10%;
     margin-top: 0px;
     clear: both;
-    width: 100%;
+    width: 80%;
 }
 
-#categoria ul {
+.categoria ul {
 	list-style-type: none;
 	width: 164%;
 	left: 0;
@@ -332,11 +332,11 @@
 	text-align: center;
 	bottom: 0;
 	padding: 0;
-	height: 240px;
+	height: 250px;
 	margin-left: 6%;
 }
 
-#categoria ul li {
+.categoria ul li {
 	display: inline-block;
 	padding:0;
 	width: auto;
