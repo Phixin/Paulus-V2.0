@@ -99,7 +99,7 @@
     float: left;
     height: 57px;
     margin-left: 0%;
-    margin-top: 15px;
+    margin-top: 2%;
     clear: none;
     width: 65.863992%;
 }
@@ -329,6 +329,7 @@
    #box4_biblioteca {
         width: 58.53125%;
         height: 57px;
+		margin-top:2.5%;
    }
 }
 
@@ -340,10 +341,16 @@
         width: 41.458333%;
         height: 57px;
    }
+   
+   #box5_biblioteca > a > img {
+	   width:15%;
+   }
+
 
    #box4_biblioteca {
         width: 49.997396%;
         height: 57px;
+		margin-top:4.5%;
    }
 
    #box2_biblioteca {

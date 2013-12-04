@@ -142,13 +142,13 @@
         font-family: pt-sans;
         font-size: 1.5em;
         color: rgb(255, 255, 255);
-        margin-top: 125px;
+        margin-top: 11%;
         margin-left: 59.732056%;
         clear: none;
    }
 
    #perfil_image2 {
-        margin-top: 85px;
+        margin-top: 8%;
         margin-left: -68.234253%;
         clear: none;
    }
@@ -195,11 +195,11 @@
    }
 
    #perfil_image {
-        float: left;
+        float: none;
         width: auto;
         max-width: 100%;
         height: auto;
-        margin: 51px auto 0px 35.013835%;
+        margin: 6% auto 0 auto;
         clear: none;
         color: rgb(0, 0, 0);
 		display:block;
@@ -237,9 +237,9 @@
    }
 
    #perfil_image {
-        margin-top: 51px;
-        margin-left: 25.804036%;
         clear: none;
+		float: none;
+		margin: 6% auto 0 auto;
    }
 
    #perfil_box {

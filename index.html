@@ -44,12 +44,23 @@
 	<script type="text/javascript">
 
 
-
+    var gotoWhere; 
 
     $(window).scroll(function() { check_image_load(); });
 		$(document).ready(function()
     {
       
+      gotoWhere = getQueryVariable("gotoPage");
+      
+      if(gotoWhere == "page2")
+      {
+        onChange("page2")
+      }
+      else if(gotoWhere == "page3")
+      {
+        onChange("page3")
+      }
+
       check_image_load();
       //touchScroll("page5");
 
@@ -70,6 +81,21 @@
         $.mobile.touchOverflowEnabled = true;
       });
 
+      function getQueryVariable(variable) 
+        {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) 
+            {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) 
+                {
+                    return pair[1];
+                }
+            } 
+            //alert('Query Variable ' + variable + ' not found');
+        }
+
 
 		$("ul.tabs").jTabs({content: ".tabs_content"});});    
 		
@@ -82,6 +108,8 @@
 
     var isOpenHelp  = false;
     var isOpenHelpC = false;
+
+    var actualCategory;
 		
 		var actualPage;
 		
@@ -464,9 +492,9 @@ function is_in_view(elem) {
 				var liObject = '<li><a href="#page7"><img src='+arrNews[i].img+' alt="img01"><figcaption><strong>'+arrNews[i].title+'</strong><br/>'+arrNews[i].editorial+'</figcaption></a></li>';
 				$('#listHomeFeatures').append(liObject);
 				//$('#kids').append(liObject);
-				$('#teens').append(liObject);
-				$('#fathers').append(liObject);
-				$('#old').append(liObject);
+				//$('#teens').append(liObject);
+				//$('#fathers').append(liObject);
+				//$('#old').append(liObject);
 			}
 			
 			for(var j=0;j<arrFeatures.length; j++)
@@ -515,10 +543,10 @@ function is_in_view(elem) {
 
       for (var j = 0; j < arrCategory.length; j++) 
       {
-        var liObjectCat = '<li><a onClick="onDetailBook('+arrCategory[j].node.Nid+')"><img src='+arrCategory[j].node.field_image+' alt="img01"><figcaption><strong>'+arrCategory[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
+        var liObjectCat = '<li><a onClick="onDetailBook('+arrCategory[j].node.nid+')"><img src='+arrCategory[j].node.field_image+' alt="img01"><figcaption><strong>'+arrCategory[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
         $('#kids').append(liObjectCat);
       };
-      $('#kids').css({"width" :  j * 40});
+      if(j>1)$('#kids').css({"width" :  (j+1) * 185});
     }
 
     function finishCategory_2(arrCategory)
@@ -526,10 +554,10 @@ function is_in_view(elem) {
 
       for (var j = 0; j < arrCategory.length; j++) 
       {
-        var liObjectCat = '<li><a onClick="onDetailBook('+arrCategory[j].node.Nid+')"><img src='+arrCategory[j].node.field_image+' alt="img01"><figcaption><strong>'+arrCategory[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
+        var liObjectCat = '<li><a onClick="onDetailBook('+arrCategory[j].node.nid+')"><img src='+arrCategory[j].node.field_image+' alt="img01"><figcaption><strong>'+arrCategory[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
         $('#teens').append(liObjectCat);
       };
-      $('#teens').css({"width" :  j * 40});
+      if(j>1)$('#teens').css({"width" :  j * 152});
     }
     //------banner 
     function finishCategory_3(arrCategory)
@@ -537,10 +565,10 @@ function is_in_view(elem) {
 
       for (var j = 0; j < arrCategory.length; j++) 
       {
-        var liObjectCat = '<li><a onClick="onDetailBook('+arrCategory[j].node.Nid+')"><img src='+arrCategory[j].node.field_image+' alt="img01"><figcaption><strong>'+arrCategory[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
+        var liObjectCat = '<li><a onClick="onDetailBook('+arrCategory[j].node.nid+')"><img src='+arrCategory[j].node.field_image+' alt="img01"><figcaption><strong>'+arrCategory[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
         $('#fathers').append(liObjectCat);
       };
-      $('#fathers').css({"width" :  j * 40});
+      if(j>1)$('#fathers').css({"width" :  j * 152});
     }
 
     function finishCategory_4(arrCategory)
@@ -548,16 +576,16 @@ function is_in_view(elem) {
 
       for (var j = 0; j < arrCategory.length; j++) 
       {
-        var liObjectCat = '<li><a onClick="onDetailBook('+arrCategory[j].node.Nid+')"><img src='+arrCategory[j].node.field_image+' alt="img01"><figcaption><strong>'+arrCategory[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
+        var liObjectCat = '<li><a onClick="onDetailBook('+arrCategory[j].node.nid+')"><img src='+arrCategory[j].node.field_image+' alt="img01"><figcaption><strong>'+arrCategory[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
         $('#old').append(liObjectCat);
       };
-     $('#old').css({"width" :  j * 40}); 
+     if(j>1)$('#old').css({"width" :  j * 152}); 
     }
 
     function onDetailBook(idBook)
     {
-      callThisURL("http://dev-app-paulus.gotpantheon.com/wsapi/node/" + idBook, "DETAIL_BOOK");
-      //alert("http://dev-app-paulus.gotpantheon.com/wsapi/node/" + idBook)
+      callThisURL("http://dev-app-paulus.gotpantheon.com/wsproduct/" + idBook, "DETAIL_BOOK");
+      //alert("http://dev-app-paulus.gotpantheon.com/wsproduct/" + idBook)
       onChange("page7");
     }
     //----------------------------------------------------------------------------------------------------------------
@@ -566,11 +594,31 @@ function is_in_view(elem) {
     //---------------------------------------- DETAIL BOOK ------------------------------------------------------------------------
     function finishDetailBook(arrDetailBook)
     {
-      var newSrc = "http://dev-app-paulus.gotpantheon.com/sites/default/files/" + arrDetailBook.field_image.es[0].filename;
-      $("#book").attr('src', newSrc);
-      $("#detalle_text1").html(arrDetailBook.title_field.es[0].value)
-      $("#detalle_text2").html(arrDetailBook.title_field.es[0].value)
-      $("#text_bodyDetail").html(arrDetailBook.body.und[0].value)
+      $("#book").attr('src', arrDetailBook[0].node.field_image);
+
+      $("#detalle_text1").html(arrDetailBook[0].node.title);
+      $("#detalle_text2").html(arrDetailBook[0].node.author);
+      $("#text_bodyDetail").html(arrDetailBook[0].node.summary);
+      
+      $("#col_detailBook").html("no hay coleccion");
+      $("#pag_detailBook").html(arrDetailBook[0].node.pageprint);
+      $("#size_detailBook").html("11 mb");
+      $("#detalle_textspan").html(arrDetailBook[0].node.commerce_price);
+
+      if(arrDetailBook[0].node.lang == "Spanish")
+        $("#lan_detailBook").html("Español")
+
+      callThisURL("http://dev-app-paulus.gotpantheon.com/ws-categorias/" + arrDetailBook[0].node.category, "CATEGORY_DETAIL");
+    }
+
+    function finishCategory_detail(arrDetailCategory)
+    {
+      for (var j = 0; j < arrDetailCategory.length; j++) 
+      {
+        var liObjectCat = '<li><a onClick="onDetailBook('+arrDetailCategory[j].node.nid+')"><img src='+arrDetailCategory[j].node.field_image+' alt="img01"><figcaption><strong>'+arrDetailCategory[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
+        
+        $('#categoryDetail').append(liObjectCat);
+      };
     }
 
     //----------------------------------------------------------------------------------------------------------------
@@ -817,6 +865,16 @@ function is_in_view(elem) {
     }
     //----------------------------------------------------------------------------------------------------------------
 
+    var onFav= true;
+    function onMyFavs()
+    {
+      if(onFav)
+        $("#detalle_fav").attr("src","images/starW.png")
+      else
+        $("#detalle_fav").attr("src","images/star.png")
+      onFav = !onFav;
+    }
+
     function editFieldMail()
     {
       $("#edit_mail").attr("readonly", false);
@@ -847,8 +905,95 @@ function is_in_view(elem) {
       })
     }
 
-    
+    //----------------------------------- SEARCH BOX ------------------------------------------------------
+    function onSearchBox(evt)
+    {
+      var myWord;
+      var key = (evt.which);
+      if(key == 13)
+      {
+        if(actualPage == "page3")
+        {
+          myWord =  document.getElementById("searchinput_home").value;
+          if(myWord == "")
+            myWord =  document.getElementById("buscar_home").value;
+        }
 
+        else if(actualPage == "page5")
+        {
+          myWord =  document.getElementById("searchinput_category").value;
+          if(myWord == "")
+            myWord =  document.getElementById("buscar_category").value;
+        } 
+
+        else if(actualPage == "page6")
+        {
+          myWord =  document.getElementById("searchinput_categories").value;
+          if(myWord == "")
+            myWord =  document.getElementById("buscar_categories").value;
+        } 
+
+        else if(actualPage == "page7")
+        {
+          myWord =  document.getElementById("searchinput_detail").value;
+          if(myWord == "")
+            myWord =  document.getElementById("detail_home").value;
+        }
+        else if(actualPage == "page9")
+        {
+          myWord =  document.getElementById("searchinput_categories").value;
+          if(myWord == "")
+            myWord =  document.getElementById("buscar_categories").value;
+        } 
+
+        alert(myWord);
+        alert(actualPage);
+
+        callThisURL("http://dev-app-paulus.gotpantheon.com/wsautor/" + myWord, "SEARCH");
+      }
+    }
+
+    function crearAllSearchBox()
+    {
+      document.getElementById("searchinput_home").value         = "";
+      document.getElementById("searchinput_category").value     = "";
+      document.getElementById("searchinput_categories").value   = "";
+      document.getElementById("searchinput_detail").value       = "";
+    }
+
+    function finishSearch(arrSearchResult)
+    {
+      var myNum;
+
+      if(arrSearchResult.length == 0)
+      {
+        if(frstTimeSearch)
+        {
+          callThisURL("http://dev-app-paulus.gotpantheon.com/wsproduct/" + myWord, "SEARCH");
+        }else{
+          alert("Sin resultados");
+        }
+      }
+      else
+      {
+        onChange("page6");
+        for (var j = 0; j < arrSearchResult.length; j++) 
+        {
+          myNum = j/2;
+          if(myNum - Math.floor(myNum) == 0)
+          {
+            var liObjectCat = '<li class="li_gray" ><a onClick="onDetailBook('+arrSearchResult[j].node.nid+')"><img src='+arrSearchResult[j].node.field_image+' alt="img01"><figcaption><strong>'+arrSearchResult[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
+          }else{
+            var liObjectCat = '<li><a onClick="onDetailBook('+arrSearchResult[j].node.nid+')"><img src='+arrSearchResult[j].node.field_image+' alt="img01"><figcaption><strong>'+arrSearchResult[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
+          }
+          
+          $('#resulSearchList').append(liObjectCat);
+        };        
+      }
+      
+
+      //alert(arrSearchResult[0].node.title);
+    }
 	</script>
     
     
@@ -858,7 +1003,7 @@ function is_in_view(elem) {
 <body>
 
 <!--_____________________________________________________________ Pagina _____________________________________________________________-->
-
+<!--
 <div data-role="page" id="page" data-title="San Pablo - Language">
     <section id="content_language">
         <div class="container bg_red">
@@ -889,9 +1034,9 @@ function is_in_view(elem) {
       </div>
     </section>
 </div>
-
+-->
 <!--___________________________________________________________ Paginas REGISTRO ___________________________________________________________-->
-
+<!--
 <div data-role="page" id="page1" data-title="San Pablo - Registro">
     <section id="content_registro">
         <div class="container bg_red">
@@ -941,7 +1086,7 @@ function is_in_view(elem) {
       </div>
     </section>
 </div>
-
+-->
 <div data-role="page" id="page2">
     <section id="content_registro2">
         <div class="container bg_red_registro bg_red">
@@ -1095,13 +1240,20 @@ function is_in_view(elem) {
               <div class="logo"><img src="images/logo_sanpablo_color.png"></div>
                 <div id="menu">
                   <ul id="menu_header">
+                            <!--BTN Search pequeno-->
                           <li class="first_link_search">
-                            <div id="search_tinny"><a class="search_peq" ><img src="images/search_icon_48.jpg"></a></div> <!--BTN Search pequeno-->
-                            <div id="search">
+                            <div id="search_tinny_home">
+                              <a class="search_peq" >
+                                <img src="images/search_icon_48.jpg">
+                              </a>
+                            </div> 
+
+                            <!--Search grande-->
+                            <div id="search_home" >
                             <div data-role="fieldcontain" class="search">
-                              <input class="search_home_1024" type="search" name="" id="searchinput1" value="" placeholder="Buscar"  />
+                              <input class="search_home_1024" type="search" name="" id="searchinput_home" value="" placeholder="Buscar" onkeydown="onSearchBox(event)" />
                             </div>
-                            </div> <!--Search grande-->
+                            </div> 
                   </li>
                         <li class="second_link_sesion"><a class="inicio"><img id="userBtn" src="images/sesion_icon_48.jpg"/></a></li>
                         <li><a class="btn_shop" ><img id="shopBtn" src="images/shop_icon_48.jpg"></a></li>
@@ -1111,7 +1263,7 @@ function is_in_view(elem) {
                 </div>
             </header>
             <div class="search_drop">
-              <input class="field_search_tinny" name="" id="buscar" value="" placeholder="Buscar" type="search"> <a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>
+              <input class="field_search_tinny" name="" id="buscar_home" value="" placeholder="Buscar" type="search" onkeydown="onSearchBox(event)"> <!--<a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>-->
             </div> <!--Search Drop-->
             <div id="userDiv" class="sesion_drop grid-full">
                 <div class="gray_pointer sesion_pointer"></div>
@@ -1128,6 +1280,7 @@ function is_in_view(elem) {
                         </ul>
           </div>
                     <div class="btns_carrito">
+                    	<a id="btn_erase" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
                       <a id="btn_fin" data-role="button" data-inline="true" data-theme="c" data-mini="true">Finalizar Compra</a>
                       
                     </div>
@@ -1306,10 +1459,10 @@ function is_in_view(elem) {
                 <div id="menu">
                   <ul id="menu_header">
                           <li class="first_link_search">
-                            <div id="search_tinny"><a class="search_peq"><img src="images/search_icon_48.jpg"></a></div> <!--BTN Search pequeno-->
-                            <div id="search">
-                            <div data-role="fieldcontain" class="search">
-                              <input class="search_home_1024" type="search" name="" id="searchinput1" value="" placeholder="Buscar"  />
+                            <div id="search_tinny_categoria"><a class="search_peq"><img src="images/search_icon_48.jpg"></a></div> <!--BTN Search pequeno-->
+                            <div id="search_categoria">
+                            <div data-role="fieldcontain" class="search_categoria">
+                              <input class="search_home_1024" type="search" name="" id="searchinput_category" value="" placeholder="Buscar" onkeydown="onSearchBox(event)" />
                             </div>
                             </div> <!--Search grande-->
                   </li>
@@ -1321,7 +1474,7 @@ function is_in_view(elem) {
                 </div>
             </header>
             <div class="search_drop">
-              <input class="field_search_tinny" name="" id="buscar" value="" placeholder="Buscar" type="search"> <a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>
+              <input class="field_search_tinny" name="" id="buscar_category" value="" placeholder="Buscar" type="search" onkeydown="onSearchBox(event)"> <!--<a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>-->
             </div> <!--Search Drop-->
             <div id="userDivCat2" class="sesion_drop grid-full">
                 <div class="gray_pointer sesion_pointer"></div>
@@ -1338,6 +1491,7 @@ function is_in_view(elem) {
                         </ul>
           </div>
                     <div class="btns_carrito">
+                    	<a id="btn_erase_categoria" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
                       <a id="btn_fin" data-role="button" data-inline="true" data-theme="c" data-mini="true">Finalizar Compra</a>
                       
                     </div>
@@ -1406,7 +1560,7 @@ function is_in_view(elem) {
                <img id='categoria_image' src='images/banner_categoria.jpg' class='image' />
        <div id='categoria_box' class='clearfix'>
            <p id='categoria_text'>
-           Familia
+           Categorias
            </p>
            <div id='categoria_box1' class='clearfix'>
                <img id='categoria_image1' src='images/spliter_red.png' class='image' />
@@ -1418,7 +1572,7 @@ function is_in_view(elem) {
        <div id='categoria_box3' class='clearfix'>
            <div id='categoria_box4' class='clearfix'>
                <p id='categoria_text1'>
-               Niños<br />
+               Actualidad<br />
                </p>
                <div id='categoria_box5' class='clearfix'>
                </div>
@@ -1430,7 +1584,7 @@ function is_in_view(elem) {
            </div>
            <div id='categoria_box7' class='clearfix'>
                <p id='categoria_text2'>
-               Adolescentes<br />
+               Bilbia<br />
                </p>
                <div id='categoria_box8' class='clearfix'>
                </div>
@@ -1453,7 +1607,7 @@ function is_in_view(elem) {
            </div>
            <div id='categoria_box13' class='clearfix'>
                <p id='categoria_text4'>
-               Escuela de padres<br />
+               Ensayos<br />
                </p>
                <div id='categoria_box14' class='clearfix'>
                </div>
@@ -1465,25 +1619,14 @@ function is_in_view(elem) {
            </div>
            <div id='categoria_box16' class='clearfix'>
                <p id='categoria_text5'>
-               Tercera edad<br />
+               Pastoral<br />
                </p>
                <div id='categoria_box17' class='clearfix'>
                </div>
            </div>
            <div id='cat_cuatro' class='clearfix listcategory categoria'>
             <ul id="old">
-                            <li><a onclick="onChange('page7')"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
+                            
                 </ul>
            </div>
        </div>
@@ -1518,10 +1661,10 @@ function is_in_view(elem) {
                 <div id="menu">
                   <ul id="menu_header">
                           <li class="first_link_search">
-                            <div id="search_tinny"><a class="search_peq" ><img src="images/search_icon_48.jpg"></a></div> <!--BTN Search pequeno-->
-                            <div id="search">
+                            <div id="search_tinny_categorias"><a class="search_peq" ><img src="images/search_icon_48.jpg"></a></div> <!--BTN Search pequeno-->
+                            <div id="search_categorias">
                             <div data-role="fieldcontain" class="search">
-                              <input class="search_home_1024" type="search" name="" id="searchinput1" value="" placeholder="Buscar"  />
+                              <input class="search_home_1024" type="search" name="" id="searchinput_categories" value="" placeholder="Buscar" onkeydown="onSearchBox(event)" />
                             </div>
                             </div> <!--Search grande-->
                   </li>
@@ -1533,7 +1676,7 @@ function is_in_view(elem) {
                 </div>
             </header>
             <div class="search_drop">
-              <input class="field_search_tinny" name="" id="buscar" value="" placeholder="Buscar" type="search"> <a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>
+              <input class="field_search_tinny" name="" id="buscar_categories" value="" placeholder="Buscar" type="search" onkeydown="onSearchBox(event)"> <!--<a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>-->
             </div> <!--Search Drop-->
             <div id="userDivCat" class="sesion_drop grid-full">
                 <div class="gray_pointer sesion_pointer"></div>
@@ -1550,6 +1693,7 @@ function is_in_view(elem) {
                         </ul>
           </div>
                     <div class="btns_carrito">
+                    	<a id="btn_erase_categorias" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
                       <a id="btn_fin" data-role="button" data-inline="true" data-theme="c" data-mini="true">Finalizar Compra</a>
                       
                     </div>
@@ -1627,87 +1771,8 @@ function is_in_view(elem) {
            </div>
        </div>
        <div id='container_categorias_list' class='clearfix'>
-          <ul class="lista_categorias">
-              <li>
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
-              <li class="li_gray">
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
-              <li>
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
-              <li class="li_gray">
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
-              <li>
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
-              <li class="li_gray">
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
-              <li>
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
-              <li class="li_gray">
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
-              <li>
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
-              <li class="li_gray">
-                <a onclick="onChange('page7')"><img src="images/img_categorias1.png"></a>
-                  <div class="txt_categorias">
-                      <a onclick="onChange('page7')">Biblia</a>
-                      <br/>
-                      <span class="No_libros">10 Libros</span>
-                  </div>
-              </li>
+          <ul id="resulSearchList" class="lista_categorias">
+              
           </ul>
        </div>
        <div id='mas_categorias' class='clearfix'>
@@ -1744,7 +1809,7 @@ function is_in_view(elem) {
                             <div id="search_tinny"><a class="search_peq"><img src="images/search_icon_48.jpg"></a></div> <!--BTN Search pequeno-->
                             <div id="search">
                             <div data-role="fieldcontain" class="search">
-                              <input class="search_home_1024" type="search" name="" id="searchinput1" value="" placeholder="Buscar"  />
+                              <input class="search_home_1024" type="search" name="" id="searchinput_detail" value="" placeholder="Buscar" onkeydown="onSearchBox(event)" />
                             </div>
                             </div> <!--Search grande-->
                   </li>
@@ -1757,7 +1822,7 @@ function is_in_view(elem) {
             </header>
             <div class="search_drop">
 
-              <input class="field_search_tinny" name="" id="buscar" value="" placeholder="Buscar" type="search"> <a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>
+              <input class="field_search_tinny" name="" id="buscar_detail" value="" placeholder="Buscar" type="search" onkeydown="onSearchBox(event)"> <!--<a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>-->
             </div> <!--Search Drop-->
             <div id="userDivDet" class="sesion_drop grid-full">
                 <div class="gray_pointer sesion_pointer"></div>
@@ -1774,6 +1839,7 @@ function is_in_view(elem) {
                         </ul>
           </div>
                     <div class="btns_carrito">
+                    	<a name="btn_erase_detalle" id="btn_erase_detalle" data-inline="true" data-role="button" data-theme="c" data-mini="true">Vaciar Carrito</a>
                       <a id="btn_fin" data-role="button" data-inline="true" data-theme="c" data-mini="true">Finalizar Compra</a>
                       
                     </div>
@@ -1845,7 +1911,7 @@ function is_in_view(elem) {
            Temas Biblicos
            </p>
            <div id='detalle_icons' class='clearfix'>
-               <img id='detalle_fav' src='images/star.png' class='image' />
+               <img id='detalle_fav' onClick="onMyFavs()" src='images/star.png' class='image' />
                <img id='detalle_split' src='images/spliter_black.png' class='image' />
                <img id='detalle_image' src='images/spliter_white.png' class='image' />
                <img id='detalle_add' src="images/mas_peq.png" class='image' />
@@ -1885,18 +1951,16 @@ function is_in_view(elem) {
             </ul>
             <div class="clear"></div>
             <div class="tabs_content">
-            <div id="text_bodyDetail">
-            	Diam dolus mauris refero. Caecus causa decet volutpat. Damnum importunus refero similis suscipere te ut. Distineo ea exputo ille os ulciscor wisi. Abico cui diam pecus proprius. Commodo consequat dolore haero ludus sino ut veniam. Aliquam augue haero humo ille iriure pertineo. Acsi huic interdico nimis. Caecus cui duis importunus proprius scisco vereor. Abbas augue damnum decet hos immitto meus roto ullamcorper ut. Brevitas dignissim mos natu torqueo uxor. Accumsan amet dignissim iusto jus. Distineo pala praesent typicus. Amet caecus euismod melior velit. Iustum laoreet pala singularis tum typicus. Lobortis occuro oppeto scisco. Caecus defui lobortis refoveo. Brevitas dolor neo nisl pneum ulciscor valetudo vicis. Facilisi iustum sagaciter. Dolor feugiat lenis quadrum refero valde. Abdo ex quadrum saepius tum. Consectetuer pneum proprius similis. Brevitas eros et exputo gilvus tego uxor volutpat. Abbas acsi at diam facilisi luptatum os quibus tego uxor. Aptent comis nostrud patria populus quadrum typicus ulciscor volutpat. Cui decet dignissim erat luctus melior neo populus utrum. Accumsan antehabeo enim exputo meus persto uxor. Abbas comis eum. Abico accumsan tum. Aptent capto diam mos odio probo sed tamen. Capto huic inhibeo mos refoveo velit. Exerci inhibeo modo neque paulatim pneum proprius scisco tation. Dignissim ideo patria paulatim. Acsi facilisi iaceo nisl occuro ratis sagaciter similis tum valde. Ideo iriure melior minim nisl nunc roto verto. Eligo molior nisl. Abigo capto cogo esse exerci obruo similis. Commoveo eros hos inhibeo lucidus suscipit verto. Aliquip lobortis qui valde. Eligo et hendrerit premo suscipere. Abico adipiscing gilvus haero ideo populus praesent ulciscor ut. Aliquip eligo lobortis premo quae saepius. Diam euismod gravis haero pneum proprius ut valetudo. Aliquip esca jugis modo occuro plaga roto sino tincidunt uxor. Abdo appellatio camur damnum gravis illum nostrud pneum vindico. Esca nibh praemitto wisi. Augue et eu iaceo neque nibh olim patria. Abigo camur dignissim distineo ea immitto saluto zelus. Abluo humo inhibeo iriure pagus sed si tum. Ad inhibeo molior sagaciter. Commodo consequat distineo esse gilvus incassum lobortis natu quae refoveo. Abluo eligo eu minim molior paratus typicus. Aliquip bene camur jumentum. Luctus melior nobis nulla. Ad blandit causa exputo neque pertineo rusticus volutpat. Acsi commodo dignissim elit esse haero mos. Eros gemino jugis meus persto pneum ut. Damnum ex huic lobortis nimis nisl singularis valde vulputate. At comis commodo nisl olim quadrum. Hos incassum ratis si sino tation uxor. Augue hendrerit occuro quae qui quia quidne. Comis gemino nibh nisl tum vel venio verto. Appellatio genitus gilvus hos ille nimis nisl nulla pertineo vicis. Gemino occuro valetudo vicis vindico. Feugiat patria ratis refero saepius suscipere validus. Laoreet tego typicus. Exputo hendrerit pagus paratus probo scisco vereor. Abluo conventio esca exerci iriure magna saluto tation usitas. Feugiat incassum neo nunc. Aliquip consectetuer eum ibidem molior nostrud persto tincidunt virtus. Gemino genitus ibidem lobortis mauris nutus rusticus virtus. Abbas accumsan antehabeo eros luptatum nunc vicis voco. Hos lobortis ludus usitas volutpat.
-            </div>
+            <div id="text_bodyDetail"></div>
 
             <div>
               <br/>
                <br/>
-              <strong class="bold">Idioma:</strong> Español <br/> <br/>
-               <strong class="bold">Colección:</strong> Temas Bíblicos <br/> <br/>
-               <strong class="bold">Editorial:</strong> San Pablo Colombia <br/> <br/>
-               <strong class="bold">Páginas Impresas:</strong> 250 páginas <br/> <br/>
-              <strong class="bold">Tamaño:</strong> 7.5 megas
+              <strong class="bold">Idioma:</strong> <spam id="lan_detailBook"> Español </spam><br/> <br/>
+               <strong class="bold">Colección:</strong> <spam id="col_detailBook">Temas Bíblicos </spam><br/> <br/>
+               <strong class="bold">Editorial:</strong> <spam id="edi_detailBook">San Pablo Colombia </spam><br/> <br/>
+               <strong class="bold">Páginas Impresas:</strong> <spam id="pag_detailBook">250 páginas </spam><br/> <br/>
+              <strong class="bold">Tamaño:</strong><spam id="size_detailBook"> 7.5 megas</spam>
             </div>
             
             <div id="valoracion">
@@ -1993,43 +2057,8 @@ function is_in_view(elem) {
             
        <div id='detalle_slider' class='clearfix'>
            <div id="detalle_categoria" class='clearfix listcategory'>
-            <ul>
-                            <li><a onclick="onChange('page7')"><img src="images/1.png" alt="img01"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                             <li><a onclick="onChange('page7')"><img src="images/6.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/1.png" alt="img01"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/2.png" alt="img02"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/3.png" alt="img03"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/4.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/5.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
-                            <li><a onclick="onChange('page7')"><img src="images/6.png" alt="img04"><figcaption><strong>El Habitus en la ...</strong>
-                            <br/>
-                            Editorial San Pablo</figcaption></a></li>
+            <ul id="categoryDetail">
+                            
                 </ul>
            </div>
            <div id='titleSlider' class='clearfix'>
@@ -2053,7 +2082,7 @@ function is_in_view(elem) {
 
   </div>
     
-<!-----------------------Pagina Biblioteca----------------------->
+<!--________________________________________ Pagina Biblioteca ________________________________________-->
 
 <div data-role="page" id="page8" data-title="San Pablo - biblioteca">
   <div id="primaryContainer" class="primaryContainer clearfix">
@@ -2269,7 +2298,7 @@ function is_in_view(elem) {
   </div>
 </div>
 
-<!-----------------------Pagina Biblioteca Vista Lista----------------------->
+<!--________________________________________ Pagina Biblioteca Vista Lista ________________________________________-->
 
 <div data-role="page" id="page9" data-title="San Pablo - biblioteca">
   <div id="primaryContainer" class="primaryContainer clearfix">

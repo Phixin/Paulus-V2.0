@@ -138,3 +138,18 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. 
 		<audiobooks>Audiolibros</audiobooks>
 	</footer>
 </page8>
+
+<alert>
+	<empty>Sin resultados</empty>
+	<sended>Tu comentario ha sido enviado</sended>
+	<name>Ingresa un nombre</name>
+	<mail>Ingresa un mail</mail>
+	<comment>Ingresa una opinión</comment>
+	<pass>Ingresa una contraseña</pass>
+	<succes>Registro exitoso</succes>
+	<nomatch>Las contraseñas no coinciden</nomatch>
+	<city>Ingresa una ciudad</city>
+	<passtwo>Repite tu contraseña</passtwo>
+	<country>Ingresa un país</country>
+	<givemail>Ingresa un mail válido</givemail>
+</alert>
