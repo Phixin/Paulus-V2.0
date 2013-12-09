@@ -1234,7 +1234,7 @@ code {
 	text-align: center;
 	bottom: 0;
 	padding: 0;
-	height: 252px;
+	height: 260px;
 }
 
 .no-js .mi-slider ul {
@@ -1279,6 +1279,7 @@ code {
 .mi-slider ul li img {
 	max-width: 100%;
 	border: none;
+	margin:0 5px;
 }
 #search_tinny{
 	display:none;
@@ -1507,7 +1508,7 @@ code {
 		margin-left:25%;
 	}
 	.mi-slider {
-		height:19.5em;
+		height:20.5em;
 	}
 	.mi-slider ul{
 		top:9%;
@@ -1532,13 +1533,13 @@ code {
 		}
 	.sesion_pointer{
 		margin-top: -4%;
-		margin-left: 71%;
+		margin-left: 62.5%;
 		}
 	.txt_sesion{
 		margin-left:43%;
 		}
 	.carrito_pointer{
-		margin-left: 78%;
+		margin-left: 70%;
 		margin-top: -4%;
 		}
 	.btns_carrito{
@@ -1581,18 +1582,7 @@ code {
 		 margin-top: -30px;
 		margin-left: 92.58%;
 	}
-	/*
-	#detalle_slider {
-		height:322px !important;
-		width: 753.5px !important;
-	}
-	#detalle_categoria {
-		height: 309px !important;
-	}
-	#detalle_categoria ul {
-		height: 260px !important;
-	}
-	*/
+
 	.txt_politicas {
 		max-height: 13em;
 		height: 13em;
@@ -1656,18 +1646,6 @@ code {
 		margin-left: 32.4%;
 		margin-top: 2.5%;
 	}
-	/*
-	#detalle_slider {
-		height:322px !important;
-		width: 584.5px !important;
-	}
-	#detalle_categoria {
-		height: 309px !important;
-	}
-	#detalle_categoria ul {
-		height: 260px !important;
-	}
-	*/
 	.txt_politicas {
 		height:8em;
 	}
@@ -1747,7 +1725,7 @@ code {
 	}
 	.sesion_pointer{
 		margin-top: -7%;
-		margin-left: 66%;
+		margin-left: 61.5%;
 		}
 	.txt_sesion{
 		margin-left:33%;
@@ -1756,7 +1734,7 @@ code {
 		width:5%;
 		}
 	.carrito_pointer{
-		margin-top: -7%;
+		margin-top: -6%;
 		margin-left: 74%;
 		}
 	.min-width-480px .ui-field-contain > .ui-select > a {
@@ -1902,13 +1880,9 @@ code {
    }
    
    .howto_pointer {
-	   margin-left:90.5%;
+	   margin-left:85.28%;
 	}
-	/*
-	#detalle_categoria {
-		width:753% !important;
-	}
-	*/
+
 	.red_pointer_position {
 		margin-left: 19.4%;
 		margin-top: 3.5%;

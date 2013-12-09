@@ -109,8 +109,6 @@
     var isOpenHelp  = false;
     var isOpenHelpC = false;
 
-    var isOpenMiniS = false;
-
     var actualCategory;
 		
 		var actualPage;
@@ -319,31 +317,6 @@
       }
     }
 
-    //hide and show minisearch
-    function onOpenMiniSearch()
-    {
-      if(!isOpenMiniS)
-      {
-        isOpenMiniS = true;
-
-        $("#miniSearchDiv_home").css({"display":"block"});
-        $("#miniSearchDiv_category").css({"display":"block"});
-        $("#miniSearchDiv_categories").css({"display":"block"});
-        $("#miniSearchDiv_detail").css({"display":"block"}); 
-
-      }else{
-        isOpenMiniS = false;
-
-        $("#miniSearchDiv_home").css({"display":"none"});
-        $("#miniSearchDiv_category").css({"display":"none"});
-        $("#miniSearchDiv_categories").css({"display":"none"});
-        $("#miniSearchDiv_detail").css({"display":"none"}); 
-
-        closeAll();
-      }
-      
-    }
-
      ///-------------- BY DETAIL -----------------------
     //hide and show user setting
     function onShowUserDet()
@@ -484,16 +457,6 @@ function is_in_view(elem) {
       document.getElementById("btnFaqLib").addEventListener ("click", onShowHelp, false);
 
       document.getElementById("sendComment").addEventListener ("click", onSendComment, false);
-      
-      document.getElementById("btn_erase").addEventListener ("click", onEmptyShopingCart, false);
-      
-      document.getElementById("miniSearch_home").addEventListener ("click", onOpenMiniSearch, false);
-      document.getElementById("miniSearch_category").addEventListener ("click", onOpenMiniSearch, false);
-      document.getElementById("miniSearch_categories").addEventListener ("click", onOpenMiniSearch, false);
-      document.getElementById("miniSearch_detail").addEventListener ("click", onOpenMiniSearch, false);
-      
-      
-
 
       document.getElementById("edit_mail").value = "myResultnombreTest";
 
@@ -503,39 +466,30 @@ function is_in_view(elem) {
       };
 			
 			console.log(document.getElementById("detalle_btnComprar"))
+			//$("body").css({"height": 480 });
 			
+			/*
+			console.log("width: " + $("#page3").width());
 			
-			callThisURL("http://dev-app-paulus.gotpantheon.com/wsnews", "HOME_NEWS");
+			if( $("#page3").width() == 320)
+			{
+				console.log("Entro: " + $("#page3").height());
+				$("body").css({"height": $("#page3").height() })
+			}
+			*/
+			
+			//callThisURL("http://houselab.co/nivelics/sanPablo/json/home.php?lan=es", "HOME");
       callThisURL("http://houselab.co/nivelics/sanPablo/json/cart.php?idUser=5", "SHOP");
 			
 		};
-
-    
-
-    //------------------------------------------ EMPTY SHOPING CART ----------------------------------------------------------------------
-    var actualNumShop = 0;
-    function onEmptyShopingCart()
-    {
-      for(var i=0;i<actualNumShop; i++)
-      {
-
-        $("#myLi_"+i).css({"display":"none"});
-        $("#my2Li_"+i).css({"display":"none"});
-        $("#my3Li_"+i).css({"display":"none"});
-        $("#my4Li_"+i).css({"display":"none"});
-      }
-
-      actualNumShop = 0;
-    }
 		
 		
 		//------------------------------------------ POPULATE HOME ----------------------------------------------------------------------
-		function finishHome(arrNews)
+		function finishHome(arrNews, arrFeatures)
 		{
-      actualNumShop = arrNews.length;
 			for(var i=0;i<arrNews.length; i++)
 			{
-				var liObject = '<li><a onClick="onDetailBook('+arrNews[j].node.nid+')"><img src='+arrNews[i].node.field_image+' alt="img01"><figcaption><strong>'+arrNews[i].node.title+'</strong><br/>'+"poner editorial corta en drupal" +'</figcaption></a></li>';
+				var liObject = '<li><a href="#page7"><img src='+arrNews[i].img+' alt="img01"><figcaption><strong>'+arrNews[i].title+'</strong><br/>'+arrNews[i].editorial+'</figcaption></a></li>';
 				$('#listHomeFeatures').append(liObject);
 				//$('#kids').append(liObject);
 				//$('#teens').append(liObject);
@@ -543,7 +497,10 @@ function is_in_view(elem) {
 				//$('#old').append(liObject);
 			}
 			
-			
+			for(var j=0;j<arrFeatures.length; j++)
+			{
+					
+			}
 			
 		}
     //----------------------------------------------------------------------------------------------------------------
@@ -551,7 +508,7 @@ function is_in_view(elem) {
 		//----------------------------------------------- POPULATE SHOPPING CART -----------------------------------------------------------------
 		function finishShop(arrShop)
 		{
-			//console.log(arrShop);
+			console.log(arrShop);
 			for(var i=0;i<arrShop.length; i++)
 			{
 				var liObject = '<li id="myLi_'+i+'"><a href="#">'+arrShop[i].title+
@@ -577,30 +534,8 @@ function is_in_view(elem) {
 				$('#shopList3').append(liObject3);	
 				$('#shopList4').append(liObject4);
 			}
-
-
 		}
     //----------------------------------------------------------------------------------------------------------------
-
-    //----------------------------------------------- POPULATE PROMO -----------------------------------------------------------------
-    function finishPromo(arrPromos)
-    {
-      var myNum;
-
-      for (var j = 0; j < arrPromos.length; j++) 
-      {
-          myNum = j/2;
-          if(myNum - Math.floor(myNum) == 0)
-          {
-            var liObjectCat = '<li class="li_gray" ><a onClick="onDetailBook('+arrPromos[j].node.nid+')"><img src='+arrPromos[j].node.field_image+' alt="img01"><figcaption><strong>'+arrPromos[j].node.title+'</strong><br/>'+"no hay editorial"+'<span id="precio_lista">'+arrPromos[j].node.Price+'</span></figcaption></a></li>';
-          }else{
-            var liObjectCat = '<li><a onClick="onDetailBook('+arrPromos[j].node.nid+')"><img src='+arrPromos[j].node.field_image+' alt="img01"><figcaption><strong>'+arrPromos[j].node.title+'</strong><br/>'+"no hay editorial"+'</figcaption></a></li>';
-          }
-          
-          $('#resulSearchList').append(liObjectCat);
-        };        
-      
-    }
 
     //---------------------------------------- CATEGORY 4 LEVEL'S ------------------------------------------------------------------------
     function finishCategory_1(arrCategory)
@@ -710,12 +645,6 @@ function is_in_view(elem) {
       callThisURL("http://dev-app-paulus.gotpantheon.com/ws-categorias/biblia",     "CATEGORY_2");
       callThisURL("http://dev-app-paulus.gotpantheon.com/ws-categorias/Ensayos",    "CATEGORY_3");
       callThisURL("http://dev-app-paulus.gotpantheon.com/ws-categorias/Pastoral",   "CATEGORY_4");
-     }
-
-     //promociones
-     else if(actualPage == "page6")
-     {
-        callThisURL("http://dev-app-paulus.gotpantheon.com/wspromotion", "PROMOTION");
      }
 
       window.location.assign("index.html#"+myPage)  
@@ -1315,7 +1244,7 @@ function is_in_view(elem) {
                           <li class="first_link_search">
                             <div id="search_tinny_home">
                               <a class="search_peq" >
-                                <img src="images/search_icon_48.jpg" id="miniSearch_home">
+                                <img src="images/search_icon_48.jpg">
                               </a>
                             </div> 
 
@@ -1333,7 +1262,7 @@ function is_in_view(elem) {
                     </ul>
                 </div>
             </header>
-            <div class="search_drop" id="miniSearchDiv_home">
+            <div class="search_drop">
               <input class="field_search_tinny" name="" id="buscar_home" value="" placeholder="Buscar" type="search" onkeydown="onSearchBox(event)"> <!--<a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>-->
             </div> <!--Search Drop-->
             <div id="userDiv" class="sesion_drop grid-full">
@@ -1351,7 +1280,7 @@ function is_in_view(elem) {
                         </ul>
           </div>
                     <div class="btns_carrito">
-                      <a id="btn_erase" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
+                    	<a id="btn_erase" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
                       <a id="btn_fin" data-role="button" data-inline="true" data-theme="c" data-mini="true">Finalizar Compra</a>
                       
                     </div>
@@ -1417,7 +1346,16 @@ function is_in_view(elem) {
                            <div id="pagers_howto"></div>
                 </div>
             </div> <!--Instrucciones Drop-->
-            <div class="banner"><img src="images/banner_480.jpg"></div>
+            <script>
+				$(document).on("pageinit","#page3",function(){
+				  $("#swipe").on("swipe",function(){
+					$("#algo").text("Swipe detected!");
+				  });                       
+				});
+            </script>
+            <div class="banner" id="swipe"><img src="images/banner_480.jpg">
+            	<span id="algo"></span>
+            </div>
 <section>
               <div class="slider_categorias">
                   <div id="mi-slider" class="mi-slider">
@@ -1430,7 +1368,10 @@ function is_in_view(elem) {
                             <a class="mas_categorias" onclick="onChange('page5')"><img class="mas_categorias" src="images/mas.png"></a>
                         </nav>
                         <ul id="listHomeFeatures" class="books_novedades">
-                            
+                            <li><a onclick="onChange('page7')"><img src="images/1.png" alt="img01"><figcaption><strong>El Habitus en la Comunicación</strong>
+                            <br/>
+                            Editorial San Pablo</figcaption></a></li>
+                            <li></li>
                         </ul>
                     </div>
                 </div>
@@ -1439,8 +1380,6 @@ function is_in_view(elem) {
               <div class="banner_categorias gallery cf">
                   <img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
                   <img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
-                    <img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
-                    <img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
                     <img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
                     <img src="images/banner_categorias_1.png" class="grid-unit" onClick="onChange('page6')">
                 </div>
@@ -1526,11 +1465,11 @@ function is_in_view(elem) {
 <div data-role="page" id="page5" data-title="San Pablo - Categoria">
   <div id="primaryContainer" class="primaryContainer clearfix">
       <header id="header_home">
-              <div class="logo"><a onClick="onChange('page3')"><img src="images/logo_sanpablo_color.png"></a></div>
+              <div class="logo"><a onClick="onChange('page')"><img src="images/logo_sanpablo_color.png"></a></div>
                 <div id="menu">
                   <ul id="menu_header">
                           <li class="first_link_search">
-                            <div id="search_tinny_categoria"><a class="search_peq"><img src="images/search_icon_48.jpg" id="miniSearch_category"></a></div> <!--BTN Search pequeno-->
+                            <div id="search_tinny_categoria"><a class="search_peq"><img src="images/search_icon_48.jpg"></a></div> <!--BTN Search pequeno-->
                             <div id="search_categoria">
                             <div data-role="fieldcontain" class="search_categoria">
                               <input class="search_home_1024" type="search" name="" id="searchinput_category" value="" placeholder="Buscar" onkeydown="onSearchBox(event)" />
@@ -1544,7 +1483,7 @@ function is_in_view(elem) {
                     </ul>
                 </div>
             </header>
-            <div class="search_drop" id="miniSearchDiv_category">
+            <div class="search_drop">
               <input class="field_search_tinny" name="" id="buscar_category" value="" placeholder="Buscar" type="search" onkeydown="onSearchBox(event)"> <!--<a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>-->
             </div> <!--Search Drop-->
             <div id="userDivCat2" class="sesion_drop grid-full">
@@ -1562,7 +1501,7 @@ function is_in_view(elem) {
                         </ul>
           </div>
                     <div class="btns_carrito">
-                      <a id="btn_erase_categoria" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
+                    	<a id="btn_erase_categoria" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
                       <a id="btn_fin" data-role="button" data-inline="true" data-theme="c" data-mini="true">Finalizar Compra</a>
                       
                     </div>
@@ -1732,7 +1671,7 @@ function is_in_view(elem) {
                 <div id="menu">
                   <ul id="menu_header">
                           <li class="first_link_search">
-                            <div id="search_tinny_categorias"><a class="search_peq" ><img src="images/search_icon_48.jpg" id="miniSearch_categories"></a></div> <!--BTN Search pequeno-->
+                            <div id="search_tinny_categorias"><a class="search_peq" ><img src="images/search_icon_48.jpg"></a></div> <!--BTN Search pequeno-->
                             <div id="search_categorias">
                             <div data-role="fieldcontain" class="search">
                               <input class="search_home_1024" type="search" name="" id="searchinput_categories" value="" placeholder="Buscar" onkeydown="onSearchBox(event)" />
@@ -1746,7 +1685,7 @@ function is_in_view(elem) {
                     </ul>
                 </div>
             </header>
-            <div class="search_drop" id="miniSearchDiv_categories">
+            <div class="search_drop">
               <input class="field_search_tinny" name="" id="buscar_categories" value="" placeholder="Buscar" type="search" onkeydown="onSearchBox(event)"> <!--<a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>-->
             </div> <!--Search Drop-->
             <div id="userDivCat" class="sesion_drop grid-full">
@@ -1760,10 +1699,11 @@ function is_in_view(elem) {
                     <br/>
                     <div class="compras">
                         <ul id="shopList3" class="lista_compras">
+                            
                         </ul>
           </div>
                     <div class="btns_carrito">
-                      <a id="btn_erase_categorias" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
+                    	<a id="btn_erase_categorias" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
                       <a id="btn_fin" data-role="button" data-inline="true" data-theme="c" data-mini="true">Finalizar Compra</a>
                       
                     </div>
@@ -1842,7 +1782,7 @@ function is_in_view(elem) {
        </div>
        <div id='container_categorias_list' class='clearfix'>
           <ul id="resulSearchList" class="lista_categorias">
-          	<li class="li_gray" ><a onClick="onChange('page7')"><img src="images/img_categorias1.png"><figcaption><strong>'+arrPromos[j].node.title+'</strong><br/>'+"no hay editorial"+'<span id="precio_lista">20'000</span></figcaption></a></li>
+              
           </ul>
        </div>
        <div id='mas_categorias' class='clearfix'>
@@ -1872,11 +1812,11 @@ function is_in_view(elem) {
 <div data-role="page" id="page7" data-title="San Pablo - Detalle">
   <div id="primaryContainer" class="primaryContainer clearfix">
       <header id="header_home">
-              <div class="logo"><a onClick="onChange('page3')"><img src="images/logo_sanpablo_color.png"></a></div>
+              <div class="logo"><a onClick="onChange('page')"><img src="images/logo_sanpablo_color.png"></a></div>
                 <div id="menu">
                   <ul id="menu_header">
                           <li class="first_link_search">
-                            <div id="search_tinny"><a class="search_peq"><img src="images/search_icon_48.jpg" id="miniSearch_detail"></a></div> <!--BTN Search pequeno-->
+                            <div id="search_tinny"><a class="search_peq"><img src="images/search_icon_48.jpg"></a></div> <!--BTN Search pequeno-->
                             <div id="search">
                             <div data-role="fieldcontain" class="search">
                               <input class="search_home_1024" type="search" name="" id="searchinput_detail" value="" placeholder="Buscar" onkeydown="onSearchBox(event)" />
@@ -1890,7 +1830,7 @@ function is_in_view(elem) {
                     </ul>
                 </div>
             </header>
-            <div class="search_drop" id="miniSearchDiv_detail">
+            <div class="search_drop">
 
               <input class="field_search_tinny" name="" id="buscar_detail" value="" placeholder="Buscar" type="search" onkeydown="onSearchBox(event)"> <!--<a id="btn_search" data-role="button" data-inline="true" data-theme="c" data-mini="true">Buscar</a>-->
             </div> <!--Search Drop-->
@@ -1909,7 +1849,7 @@ function is_in_view(elem) {
                         </ul>
           </div>
                     <div class="btns_carrito">
-                      <a id="btn_detalle" data-role="button" data-inline="true" data-theme="c" data-mini="true">Vaciar Carrito</a>
+                    	<a name="btn_erase_detalle" id="btn_erase_detalle" data-inline="true" data-role="button" data-theme="c" data-mini="true">Vaciar Carrito</a>
                       <a id="btn_fin" data-role="button" data-inline="true" data-theme="c" data-mini="true">Finalizar Compra</a>
                       
                     </div>

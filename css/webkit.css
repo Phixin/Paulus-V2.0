@@ -36,7 +36,7 @@
 	#detalle_categoria ul {
 		width: 240%;
 		overflow: hidden;
-		height: 250px;
+		height: 260px;
 	}
 	#select_language_box_perfil{
 		margin: -20px auto 0 -17%;
@@ -125,6 +125,15 @@
 			margin-left:16.165918%
 		}
 
+}
+
+@media screen and (max-width: 550px){
+	.ui-input-search input.ui-input-text {
+		margin-left: 15% !important;
+	}
+	input.ui-input-text, textarea.ui-input-text {
+		font-size: 12px !important;
+	}
 }
 
 @media screen and (max-width: 480px){
